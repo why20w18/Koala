@@ -101,8 +101,8 @@
                           <Component id="jTextField_DogrulamaKoduGiris" alignment="2" min="-2" pref="201" max="-2" attributes="0"/>
                           <Component id="jPasswordField_ParolaGiris" alignment="2" min="-2" pref="202" max="-2" attributes="0"/>
                           <Component id="jTextField_KullaniciAdiGiris" alignment="2" min="-2" pref="198" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="2" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="2" min="-2" pref="122" max="-2" attributes="0"/>
+                          <Component id="jLabel_sifremiUnuttum" alignment="2" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_kayitOl" alignment="2" min="-2" pref="122" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="24" max="32767" attributes="0"/>
                   </Group>
@@ -126,9 +126,9 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jTextField_DogrulamaKoduGiris" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel_sifremiUnuttum" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel_kayitOl" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -165,17 +165,17 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel1" alignment="1" max="32767" attributes="0"/>
+                      <Component id="jLabel_GirisUserIkon" alignment="1" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel1" alignment="1" max="32767" attributes="0"/>
+                      <Component id="jLabel_GirisUserIkon" alignment="1" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel1">
+                <Component class="javax.swing.JLabel" name="jLabel_GirisUserIkon">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -185,6 +185,9 @@
                       <Image iconType="3" name="/imagesPack/user128pxGirisBeyaz.png"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel_GirisUserIkonMouseEntered"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -247,7 +250,7 @@
                 <Property name="text" type="java.lang.String" value="180"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel4">
+            <Component class="javax.swing.JLabel" name="jLabel_sifremiUnuttum">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Serif" size="15" style="0"/>
@@ -257,8 +260,12 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#x15e;ifremi Unuttum"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel_sifremiUnuttumMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel_sifremiUnuttumMouseExited"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel5">
+            <Component class="javax.swing.JLabel" name="jLabel_kayitOl">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Serif" size="15" style="0"/>
@@ -269,6 +276,10 @@
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Kay&#x131;t Ol !"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel_kayitOlMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel_kayitOlMouseExited"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

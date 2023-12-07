@@ -4,15 +4,18 @@
  */
 package girisEkraniPaketi;
 
+import girisKaynakKODislemler.ikonGecisRenkGecis;
+import java.awt.Color;
+import java.awt.Cursor;
+
 /**
  *
  * @author bvos
  */
 public class girisEkrani extends javax.swing.JFrame {
-
-    /**
-     * Creates new form girisEkrani
-     */
+    
+    ikonGecisRenkGecis ikonRenk = new ikonGecisRenkGecis();
+    
     public girisEkrani() {
         initComponents();
     }
@@ -32,14 +35,14 @@ public class girisEkrani extends javax.swing.JFrame {
         jPanel_LoginTutucuPanelGirisEkrani = new javax.swing.JPanel();
         jPanel_MinCloseTasiGirisEkrani = new javax.swing.JPanel();
         jPanel_logoTutanGiris = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel_GirisUserIkon = new javax.swing.JLabel();
         jTextField_KullaniciAdiGiris = new javax.swing.JTextField();
         jTextField_DogrulamaKoduGiris = new javax.swing.JTextField();
         jPasswordField_ParolaGiris = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel_sifremiUnuttum = new javax.swing.JLabel();
+        jLabel_kayitOl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,19 +76,24 @@ public class girisEkrani extends javax.swing.JFrame {
 
         jPanel_logoTutanGiris.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPack/user128pxGirisBeyaz.png"))); // NOI18N
+        jLabel_GirisUserIkon.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel_GirisUserIkon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_GirisUserIkon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPack/user128pxGirisBeyaz.png"))); // NOI18N
+        jLabel_GirisUserIkon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel_GirisUserIkonMouseEntered(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel_logoTutanGirisLayout = new javax.swing.GroupLayout(jPanel_logoTutanGiris);
         jPanel_logoTutanGiris.setLayout(jPanel_logoTutanGirisLayout);
         jPanel_logoTutanGirisLayout.setHorizontalGroup(
             jPanel_logoTutanGirisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel_GirisUserIkon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel_logoTutanGirisLayout.setVerticalGroup(
             jPanel_logoTutanGirisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel_GirisUserIkon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jTextField_KullaniciAdiGiris.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), " Kullanýcý Adý ", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Serif", 0, 15))); // NOI18N
@@ -101,14 +109,30 @@ public class girisEkrani extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Serif", 1, 15)); // NOI18N
         jLabel3.setText("180");
 
-        jLabel4.setFont(new java.awt.Font("Serif", 0, 15)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(102, 153, 255));
-        jLabel4.setText("Þifremi Unuttum");
+        jLabel_sifremiUnuttum.setFont(new java.awt.Font("Serif", 0, 15)); // NOI18N
+        jLabel_sifremiUnuttum.setForeground(new java.awt.Color(102, 153, 255));
+        jLabel_sifremiUnuttum.setText("Þifremi Unuttum");
+        jLabel_sifremiUnuttum.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel_sifremiUnuttumMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_sifremiUnuttumMouseExited(evt);
+            }
+        });
 
-        jLabel5.setFont(new java.awt.Font("Serif", 0, 15)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(51, 51, 255));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Kayýt Ol !");
+        jLabel_kayitOl.setFont(new java.awt.Font("Serif", 0, 15)); // NOI18N
+        jLabel_kayitOl.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel_kayitOl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_kayitOl.setText("Kayýt Ol !");
+        jLabel_kayitOl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel_kayitOlMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_kayitOlMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel_LoginTutucuPanelGirisEkraniLayout = new javax.swing.GroupLayout(jPanel_LoginTutucuPanelGirisEkrani);
         jPanel_LoginTutucuPanelGirisEkrani.setLayout(jPanel_LoginTutucuPanelGirisEkraniLayout);
@@ -127,8 +151,8 @@ public class girisEkrani extends javax.swing.JFrame {
                     .addComponent(jTextField_DogrulamaKoduGiris, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPasswordField_ParolaGiris, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField_KullaniciAdiGiris, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel_sifremiUnuttum)
+                    .addComponent(jLabel_kayitOl, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel_LoginTutucuPanelGirisEkraniLayout.setVerticalGroup(
@@ -148,9 +172,9 @@ public class girisEkrani extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jTextField_DogrulamaKoduGiris, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7)
-                .addComponent(jLabel4)
+                .addComponent(jLabel_sifremiUnuttum)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
+                .addComponent(jLabel_kayitOl)
                 .addGap(12, 12, 12))
         );
 
@@ -182,6 +206,38 @@ public class girisEkrani extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel_GirisUserIkonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_GirisUserIkonMouseEntered
+  
+            //
+            
+    }//GEN-LAST:event_jLabel_GirisUserIkonMouseEntered
+
+    private void jLabel_sifremiUnuttumMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_sifremiUnuttumMouseEntered
+
+        jLabel_sifremiUnuttum.setForeground(Color.BLACK);
+        jLabel_sifremiUnuttum.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        
+        
+    }//GEN-LAST:event_jLabel_sifremiUnuttumMouseEntered
+
+    private void jLabel_sifremiUnuttumMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_sifremiUnuttumMouseExited
+        
+        jLabel_sifremiUnuttum.setForeground(ikonRenk.getSifreUnuttumMavi());
+        
+    }//GEN-LAST:event_jLabel_sifremiUnuttumMouseExited
+
+    private void jLabel_kayitOlMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_kayitOlMouseEntered
+        
+        jLabel_kayitOl.setForeground(Color.GREEN);
+        jLabel_kayitOl.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        
+    }//GEN-LAST:event_jLabel_kayitOlMouseEntered
+
+    private void jLabel_kayitOlMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_kayitOlMouseExited
+
+            jLabel_kayitOl.setForeground(ikonRenk.getKayitOlMavi());
+    }//GEN-LAST:event_jLabel_kayitOlMouseExited
 
     /**
      * @param args the command line arguments
@@ -219,12 +275,12 @@ public class girisEkrani extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel_GirisUserIkon;
+    private javax.swing.JLabel jLabel_kayitOl;
     private javax.swing.JLabel jLabel_koalaGirisPosteri;
+    private javax.swing.JLabel jLabel_sifremiUnuttum;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel_LoginTutucuPanelGirisEkrani;
     private javax.swing.JPanel jPanel_MinCloseTasiGirisEkrani;
