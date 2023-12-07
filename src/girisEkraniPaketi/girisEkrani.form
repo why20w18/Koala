@@ -90,9 +90,9 @@
                   <Component id="jPanel_MinCloseTasiGirisEkrani" max="32767" attributes="0"/>
                   <Component id="jPanel_logoTutanGiris" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel2" min="-2" pref="88" max="-2" attributes="0"/>
+                      <Component id="jLabel_KalanSureKurtarma" min="-2" pref="88" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" pref="54" max="-2" attributes="0"/>
+                      <Component id="jLabel_KurtarmaGeriSayimInt" min="-2" pref="54" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -116,8 +116,8 @@
                       <Component id="jPanel_logoTutanGiris" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel2" alignment="3" max="32767" attributes="0"/>
-                          <Component id="jLabel3" alignment="3" max="32767" attributes="0"/>
+                          <Component id="jLabel_KalanSureKurtarma" alignment="3" max="32767" attributes="0"/>
+                          <Component id="jLabel_KurtarmaGeriSayimInt" alignment="3" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Component id="jTextField_KullaniciAdiGiris" min="-2" pref="43" max="-2" attributes="0"/>
@@ -233,7 +233,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="jLabel_KalanSureKurtarma">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Serif" size="17" style="1"/>
@@ -242,7 +242,7 @@
                 <Property name="text" type="java.lang.String" value="Kalan S&#xfc;re:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel3">
+            <Component class="javax.swing.JLabel" name="jLabel_KurtarmaGeriSayimInt">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Serif" size="15" style="1"/>
