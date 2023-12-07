@@ -114,12 +114,12 @@
                       <Component id="jPanel_MinCloseTasiGirisEkrani" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jPanel_logoTutanGiris" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel_KalanSureKurtarma" alignment="3" max="32767" attributes="0"/>
                           <Component id="jLabel_KurtarmaGeriSayimInt" alignment="3" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jTextField_KullaniciAdiGiris" min="-2" pref="43" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="jPasswordField_ParolaGiris" min="-2" max="-2" attributes="0"/>
@@ -261,6 +261,7 @@
                 <Property name="text" type="java.lang.String" value="&#x15e;ifremi Unuttum"/>
               </Properties>
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel_sifremiUnuttumMouseClicked"/>
                 <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel_sifremiUnuttumMouseEntered"/>
                 <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel_sifremiUnuttumMouseExited"/>
               </Events>

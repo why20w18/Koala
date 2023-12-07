@@ -18,18 +18,25 @@ public class girisEkrani extends javax.swing.JFrame {
     
     public girisEkrani() {
         initComponents();
-        sifreUnuttumAcKapa();
+        sifreUnuttumAcKapa(false);
     }
 
-    public Boolean sifreUnuttumAcKapa(){
+    public Boolean sifreUnuttumAcKapa(boolean dogruMu){
         
-        jTextField_DogrulamaKoduGiris.setVisible(false);
-        jLabel_KalanSureKurtarma.setVisible(false);
-        jLabel_KurtarmaGeriSayimInt.setVisible(false);
+        jTextField_DogrulamaKoduGiris.setVisible(dogruMu);
+        jLabel_KalanSureKurtarma.setVisible(dogruMu);
+        jLabel_KurtarmaGeriSayimInt.setVisible(dogruMu);
+        jTextField_KullaniciAdiGiris.setVisible(!dogruMu); //basta false girildiginden constructorda , true olup gozukur
+        jPasswordField_ParolaGiris.setVisible(!dogruMu);
         
+        if(dogruMu){ //basta false girildi , uyari ikonu gelmeli
+            jLabel_GirisUserIkon.setIcon(ikonRenk.getUser128pxGirisSifreUnuttun());
+        }
+        else{
+            jLabel_GirisUserIkon.setIcon(ikonRenk.getUser128pxGirisBeyaz());
+        }
         
-        
-        return true;
+        return dogruMu;
     }
     
     @SuppressWarnings("unchecked")
@@ -120,6 +127,9 @@ public class girisEkrani extends javax.swing.JFrame {
         jLabel_sifremiUnuttum.setForeground(new java.awt.Color(102, 153, 255));
         jLabel_sifremiUnuttum.setText("Þifremi Unuttum");
         jLabel_sifremiUnuttum.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_sifremiUnuttumMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel_sifremiUnuttumMouseEntered(evt);
             }
@@ -168,11 +178,11 @@ public class girisEkrani extends javax.swing.JFrame {
                 .addComponent(jPanel_MinCloseTasiGirisEkrani, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jPanel_logoTutanGiris, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(16, 16, 16)
                 .addGroup(jPanel_LoginTutucuPanelGirisEkraniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_KalanSureKurtarma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel_KurtarmaGeriSayimInt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(22, 22, 22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextField_KullaniciAdiGiris, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(jPasswordField_ParolaGiris, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -245,6 +255,13 @@ public class girisEkrani extends javax.swing.JFrame {
 
             jLabel_kayitOl.setForeground(ikonRenk.getKayitOlMavi());
     }//GEN-LAST:event_jLabel_kayitOlMouseExited
+
+    private void jLabel_sifremiUnuttumMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_sifremiUnuttumMouseClicked
+        
+        sifreUnuttumAcKapa(true);
+
+
+    }//GEN-LAST:event_jLabel_sifremiUnuttumMouseClicked
 
     /**
      * @param args the command line arguments
