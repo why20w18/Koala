@@ -10,6 +10,7 @@ import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 
 /**
  *
@@ -340,6 +341,22 @@ public class girisEkrani extends javax.swing.JFrame {
         if(neSectin == JOptionPane.YES_OPTION){
             JOptionPane.showMessageDialog(this, "E-Posta adresinize gelen 4 haneli kodu girin !");
             sifreUnuttumAcKapa(true); //artik kullanici adi girdiyse ve mail almak istiyorsa mail alacak
+            //girdiyse geri sayim baslasin
+            
+            SwingWorker<Void , Void> swingWorker = new SwingWorker<Void, Void>() {
+                @Override
+                protected Void doInBackground() throws Exception{
+                    
+                    for(int i = 180 ; i >= 0 ; i--){
+                        
+                        jLabel_KalanSureKurtarma.setText(String.valueOf(i));
+                        Thread.sleep(1000); // dongu hizlica bitmesin 1 saniyeye esit olsun her iterasyon
+                    }
+                    return null;   //?
+                }
+            };
+        
+        
         }
         else if(neSectin == JOptionPane.NO_OPTION){
             JOptionPane.showMessageDialog(this, "E-Posta adresinize doðrulama kodu GÖNDERÝLMEYECEKTÝR !");
