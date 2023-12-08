@@ -339,6 +339,7 @@ public class girisEkrani extends javax.swing.JFrame {
     if(!kullaniciAdi.equals("")){ //DOGRU GIRIS
         if(neSectin == JOptionPane.YES_OPTION){
             JOptionPane.showMessageDialog(this, "E-Posta adresinize gelen 4 haneli kodu girin !");
+            sifreUnuttumAcKapa(true); //artik kullanici adi girdiyse ve mail almak istiyorsa mail alacak
         }
         else if(neSectin == JOptionPane.NO_OPTION){
             JOptionPane.showMessageDialog(this, "E-Posta adresinize doðrulama kodu GÖNDERÝLMEYECEKTÝR !");
@@ -349,7 +350,7 @@ public class girisEkrani extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Kullanýcý Adý boþ býrakýlamaz");
     }
     
-    //sifreUnuttumAcKapa(true);
+    
         
         
 
