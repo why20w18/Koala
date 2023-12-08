@@ -71,7 +71,7 @@
             <Component class="javax.swing.JLabel" name="jLabel_koalaGirisPosteri">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagesPack/koalaGirisEkraniPosteri.png"/>
+                  <Image iconType="3" name="/imagesPack/koalaGirisEkraniPosteri2.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -96,15 +96,19 @@
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="0" pref="36" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="9" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="2" attributes="0">
-                          <Component id="jTextField_DogrulamaKoduGiris" alignment="2" min="-2" pref="201" max="-2" attributes="0"/>
-                          <Component id="jPasswordField_ParolaGiris" alignment="2" min="-2" pref="202" max="-2" attributes="0"/>
-                          <Component id="jTextField_KullaniciAdiGiris" alignment="2" min="-2" pref="198" max="-2" attributes="0"/>
+                          <Component id="jTextField_KullaniciAdiGiris" alignment="2" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="jPasswordField_kayitParola" alignment="2" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="jTextField_Kayıt_Email" alignment="2" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="jTextField_KayitKullaniciAdi" alignment="2" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="jTextField_DogrulamaKoduGiris" alignment="2" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="jPasswordField_ParolaGiris" alignment="2" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="jButton_GirisEkrani" alignment="2" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel_sifremiUnuttum" alignment="2" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel_kayitOl" alignment="2" min="-2" pref="122" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="24" max="32767" attributes="0"/>
+                      <EmptySpace pref="14" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -114,22 +118,30 @@
                       <Component id="jPanel_MinCloseTasiGirisEkrani" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jPanel_logoTutanGiris" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel_KalanSureKurtarma" alignment="3" max="32767" attributes="0"/>
                           <Component id="jLabel_KurtarmaGeriSayimInt" alignment="3" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jTextField_KullaniciAdiGiris" min="-2" pref="43" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPasswordField_ParolaGiris" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jTextField_DogrulamaKoduGiris" min="-2" pref="44" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jTextField_KayitKullaniciAdi" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                      <Component id="jTextField_Kayıt_Email" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jPasswordField_kayitParola" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButton_GirisEkrani" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel_sifremiUnuttum" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel_kayitOl" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -278,9 +290,59 @@
                 <Property name="text" type="java.lang.String" value="Kay&#x131;t Ol !"/>
               </Properties>
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel_kayitOlMouseClicked"/>
                 <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel_kayitOlMouseEntered"/>
                 <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel_kayitOlMouseExited"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton_GirisEkrani">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagesPack/koalaGirisEkraniButon.png"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField_KayitKullaniciAdi">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder justification="2" position="2" title=" Kullan&#x131;c&#x131; Ad&#x131; ">
+                      <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder/>
+                      </Border>
+                      <Font PropertyName="font" name="Serif" size="15" style="0"/>
+                    </TitledBorder>
+                  </Border>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField_Kay&#x131;t_Email">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder justification="2" position="2" title=" E Posta ">
+                      <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder/>
+                      </Border>
+                      <Font PropertyName="font" name="Serif" size="15" style="0"/>
+                    </TitledBorder>
+                  </Border>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="jPasswordField_kayitParola">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder justification="2" position="2" title="Parola">
+                      <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder/>
+                      </Border>
+                      <Font PropertyName="font" name="Serif" size="15" style="0"/>
+                    </TitledBorder>
+                  </Border>
+                </Property>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

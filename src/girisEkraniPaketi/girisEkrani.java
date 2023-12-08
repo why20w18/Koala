@@ -19,6 +19,7 @@ public class girisEkrani extends javax.swing.JFrame {
     public girisEkrani() {
         initComponents();
         sifreUnuttumAcKapa(false);
+        kayitOlAcKapa(false);
     }
 
     public Boolean sifreUnuttumAcKapa(boolean dogruMu){
@@ -38,6 +39,39 @@ public class girisEkrani extends javax.swing.JFrame {
         
         return dogruMu;
     }
+   public Boolean kayitOlAcKapa(boolean dogruMu){
+    jTextField_KullaniciAdiGiris.setVisible(!dogruMu);
+    jPasswordField_ParolaGiris.setVisible(!dogruMu);
+    jTextField_DogrulamaKoduGiris.setVisible(!dogruMu);
+    jLabel_KalanSureKurtarma.setVisible(!dogruMu);
+    jLabel_KurtarmaGeriSayimInt.setVisible(!dogruMu);
+
+    jTextField_KayitKullaniciAdi.setVisible(dogruMu);
+    jTextField_Kayýt_Email.setVisible(dogruMu);
+    jPasswordField_kayitParola.setVisible(dogruMu);
+
+    if(dogruMu){
+
+        jLabel_GirisUserIkon.setIcon(ikonRenk.getUser128pxGirisSifreUnuttun());
+
+    }else{
+    
+        jLabel_GirisUserIkon.setIcon(ikonRenk.getUser128pxGirisBeyaz());
+    }
+
+    return dogruMu;
+}
+
+    /*public void KayitOl(){
+        jTextField_DogrulamaKoduGiris.setVisible(false);
+        jLabel_KalanSureKurtarma.setVisible(false);
+        jLabel_KurtarmaGeriSayimInt.setVisible(false);
+        jTextField_KullaniciAdiGiris.setVisible(false); //basta false girildiginden constructorda , true olup gozukur
+        jPasswordField_ParolaGiris.setVisible(false);
+        jTextField_KayitKullaniciAdi.setVisible(true);
+        jTextField_Kayýt_Email.setVisible(true);
+        jPasswordField_kayitParola.setVisible(true);
+    }*/
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -57,10 +91,14 @@ public class girisEkrani extends javax.swing.JFrame {
         jLabel_KurtarmaGeriSayimInt = new javax.swing.JLabel();
         jLabel_sifremiUnuttum = new javax.swing.JLabel();
         jLabel_kayitOl = new javax.swing.JLabel();
+        jButton_GirisEkrani = new javax.swing.JButton();
+        jTextField_KayitKullaniciAdi = new javax.swing.JTextField();
+        jTextField_Kayýt_Email = new javax.swing.JTextField();
+        jPasswordField_kayitParola = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel_koalaGirisPosteri.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPack/koalaGirisEkraniPosteri.png"))); // NOI18N
+        jLabel_koalaGirisPosteri.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPack/koalaGirisEkraniPosteri2.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel_girisPosterPaneliLayout = new javax.swing.GroupLayout(jPanel_girisPosterPaneli);
         jPanel_girisPosterPaneli.setLayout(jPanel_girisPosterPaneliLayout);
@@ -143,6 +181,9 @@ public class girisEkrani extends javax.swing.JFrame {
         jLabel_kayitOl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_kayitOl.setText("Kayýt Ol !");
         jLabel_kayitOl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_kayitOlMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel_kayitOlMouseEntered(evt);
             }
@@ -150,6 +191,14 @@ public class girisEkrani extends javax.swing.JFrame {
                 jLabel_kayitOlMouseExited(evt);
             }
         });
+
+        jButton_GirisEkrani.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPack/koalaGirisEkraniButon.png"))); // NOI18N
+
+        jTextField_KayitKullaniciAdi.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), " Kullanýcý Adý ", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Serif", 0, 15))); // NOI18N
+
+        jTextField_Kayýt_Email.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), " E Posta ", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Serif", 0, 15))); // NOI18N
+
+        jPasswordField_kayitParola.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Parola", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Serif", 0, 15))); // NOI18N
 
         javax.swing.GroupLayout jPanel_LoginTutucuPanelGirisEkraniLayout = new javax.swing.GroupLayout(jPanel_LoginTutucuPanelGirisEkrani);
         jPanel_LoginTutucuPanelGirisEkrani.setLayout(jPanel_LoginTutucuPanelGirisEkraniLayout);
@@ -163,14 +212,18 @@ public class girisEkrani extends javax.swing.JFrame {
                 .addComponent(jLabel_KurtarmaGeriSayimInt, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel_LoginTutucuPanelGirisEkraniLayout.createSequentialGroup()
-                .addGap(0, 36, Short.MAX_VALUE)
+                .addGap(0, 9, Short.MAX_VALUE)
                 .addGroup(jPanel_LoginTutucuPanelGirisEkraniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jTextField_DogrulamaKoduGiris, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPasswordField_ParolaGiris, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField_KullaniciAdiGiris, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_KullaniciAdiGiris, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPasswordField_kayitParola, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_Kayýt_Email, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_KayitKullaniciAdi, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_DogrulamaKoduGiris, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPasswordField_ParolaGiris, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_GirisEkrani)
                     .addComponent(jLabel_sifremiUnuttum)
                     .addComponent(jLabel_kayitOl, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel_LoginTutucuPanelGirisEkraniLayout.setVerticalGroup(
             jPanel_LoginTutucuPanelGirisEkraniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,21 +231,29 @@ public class girisEkrani extends javax.swing.JFrame {
                 .addComponent(jPanel_MinCloseTasiGirisEkrani, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jPanel_logoTutanGiris, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_LoginTutucuPanelGirisEkraniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_KalanSureKurtarma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel_KurtarmaGeriSayimInt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField_KullaniciAdiGiris, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPasswordField_ParolaGiris, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField_DogrulamaKoduGiris, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField_KayitKullaniciAdi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(jTextField_Kayýt_Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPasswordField_kayitParola, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton_GirisEkrani)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel_sifremiUnuttum)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel_kayitOl)
-                .addGap(12, 12, 12))
+                .addGap(43, 43, 43))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -263,6 +324,12 @@ public class girisEkrani extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jLabel_sifremiUnuttumMouseClicked
 
+    private void jLabel_kayitOlMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_kayitOlMouseClicked
+        
+        kayitOlAcKapa(true);
+
+    }//GEN-LAST:event_jLabel_kayitOlMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -299,6 +366,7 @@ public class girisEkrani extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton_GirisEkrani;
     private javax.swing.JLabel jLabel_GirisUserIkon;
     private javax.swing.JLabel jLabel_KalanSureKurtarma;
     private javax.swing.JLabel jLabel_KurtarmaGeriSayimInt;
@@ -311,7 +379,10 @@ public class girisEkrani extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_girisPosterPaneli;
     private javax.swing.JPanel jPanel_logoTutanGiris;
     private javax.swing.JPasswordField jPasswordField_ParolaGiris;
+    private javax.swing.JPasswordField jPasswordField_kayitParola;
     private javax.swing.JTextField jTextField_DogrulamaKoduGiris;
+    private javax.swing.JTextField jTextField_KayitKullaniciAdi;
+    private javax.swing.JTextField jTextField_Kayýt_Email;
     private javax.swing.JTextField jTextField_KullaniciAdiGiris;
     // End of variables declaration//GEN-END:variables
 }
