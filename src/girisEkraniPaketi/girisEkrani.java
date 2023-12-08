@@ -349,13 +349,22 @@ public class girisEkrani extends javax.swing.JFrame {
                     
                     for(int i = 180 ; i >= 0 ; i--){
                         
-                        jLabel_KalanSureKurtarma.setText(String.valueOf(i));
+                        jLabel_KurtarmaGeriSayimInt.setText(String.valueOf(i));
                         Thread.sleep(1000); // dongu hizlica bitmesin 1 saniyeye esit olsun her iterasyon
                     }
                     return null;   //?
                 }
+
+                @Override
+                protected void done() { //islem bittiginde
+                    sifreUnuttumAcKapa(false);
+                    //gui ekranla bilgi verilebilir burada invokelater
+                }
+                
+                
+                
             };
-        
+        swingWorker.execute();
         
         }
         else if(neSectin == JOptionPane.NO_OPTION){
