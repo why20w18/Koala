@@ -16,6 +16,7 @@ import java.awt.Toolkit;
  */
 public class girisEkrani extends javax.swing.JFrame {
     
+    //
     ikonGecisRenkGecis ikonRenk = new ikonGecisRenkGecis();
     
     //ekrani ortada baslatmak icin obje olusturuyorum
@@ -327,8 +328,20 @@ public class girisEkrani extends javax.swing.JFrame {
 
     private void jLabel_sifremiUnuttumMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_sifremiUnuttumMouseClicked
         
-        sifreUnuttumAcKapa(true);
-
+    String kullaniciAdi = jTextField_KullaniciAdiGiris.getText();
+    kullaniciAdi = kullaniciAdi.replaceAll(" ", "");//bosluklu kullanici adina izin yok bufferoverflow ihtimali
+    jTextField_KullaniciAdiGiris.setText(kullaniciAdi);
+    
+    if(kullaniciAdi.equals("")){ //boþ kullanici adi girdiyse
+        System.out.println("kullanici adi giriniz !!!");
+    }
+    else{
+        System.out.println("parolaniz kayitli maile gonderildi !");
+    }
+    
+    //sifreUnuttumAcKapa(true);
+        
+        
 
     }//GEN-LAST:event_jLabel_sifremiUnuttumMouseClicked
 
