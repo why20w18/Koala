@@ -477,7 +477,7 @@ public class girisEkrani extends javax.swing.JFrame {
         else{
          
             if(textAlinanKullanici.equals(kullaniciAdi2) && passAlinanParola.equals(kullaniciParola)){
-                JOptionPane.showConfirmDialog(this, "Giriþ Baþarýlý Hoþgeldiniz !");
+                JOptionPane.showMessageDialog(this, "Giriþ Baþarýlý Hoþgeldiniz !");
             }
             else{
                 JOptionPane.showMessageDialog(this, "Kullanýcý Adý veya Parola Hatalý !");
