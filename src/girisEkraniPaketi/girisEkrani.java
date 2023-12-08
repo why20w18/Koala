@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -331,12 +332,16 @@ public class girisEkrani extends javax.swing.JFrame {
     String kullaniciAdi = jTextField_KullaniciAdiGiris.getText();
     kullaniciAdi = kullaniciAdi.replaceAll(" ", "");//bosluklu kullanici adina izin yok bufferoverflow ihtimali
     jTextField_KullaniciAdiGiris.setText(kullaniciAdi);
+        //Y/N gore int deger dondurecek 0=yes
+    int neSectin = new JOptionPane().showConfirmDialog(this, "Kurtarma"
+            + " kodu e-postanýza gönderilsin mi ?", "E-Posta Ýsteði", JOptionPane.YES_NO_OPTION);
     
-    if(kullaniciAdi.equals("")){ //boþ kullanici adi girdiyse
+    if(neSectin == 1){ //BOS BIRAKTIYSA & AYNI ZAMANDA KAYITTAN > SIFREMI UNUTTUMA ATLAYAMIYOR
         System.out.println("kullanici adi giriniz !!!");
     }
-    else{
-        System.out.println("parolaniz kayitli maile gonderildi !");
+    else{ //DOGRU GIRIS
+        
+        
     }
     
     //sifreUnuttumAcKapa(true);
