@@ -28,7 +28,7 @@ public class girisEkrani extends javax.swing.JFrame {
     
     //
     public String kullaniciAdi2 = "bugra";
-    public String kullaniciParola = "parola2";
+    public String kullaniciParola = "password";
     
     public girisEkrani() { //constructorda cagiriyoruz ki basta oto bunlar calissin
         initComponents();
@@ -41,8 +41,10 @@ public class girisEkrani extends javax.swing.JFrame {
         jTextField_DogrulamaKoduGiris.setVisible(dogruMu);
         jLabel_KalanSureKurtarma.setVisible(dogruMu);
         jLabel_KurtarmaGeriSayimInt.setVisible(dogruMu);
+        jButton_KoduGonderSifreUnuttum.setVisible(dogruMu);
         jTextField_KullaniciAdiGiris.setVisible(!dogruMu); //basta false girildiginden constructorda , true olup gozukur
         jPasswordField_ParolaGiris.setVisible(!dogruMu);
+        jButton_GirisEkrani.setVisible(!dogruMu);
         
         jLabel_kayitOl.setVisible(!dogruMu);
         jLabel_sifremiUnuttum.setVisible(!dogruMu);
@@ -116,6 +118,7 @@ public class girisEkrani extends javax.swing.JFrame {
         jTextField_KayitKullaniciAdi = new javax.swing.JTextField();
         jTextField_Kayýt_Email = new javax.swing.JTextField();
         jPasswordField_kayitParola = new javax.swing.JPasswordField();
+        jButton_KoduGonderSifreUnuttum = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -177,6 +180,11 @@ public class girisEkrani extends javax.swing.JFrame {
         });
 
         jTextField_DogrulamaKoduGiris.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), " Doðrulama Kodu ", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Serif", 0, 15))); // NOI18N
+        jTextField_DogrulamaKoduGiris.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField_DogrulamaKoduGirisKeyPressed(evt);
+            }
+        });
 
         jPasswordField_ParolaGiris.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), " Parola ", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Serif", 0, 15))); // NOI18N
         jPasswordField_ParolaGiris.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -241,6 +249,8 @@ public class girisEkrani extends javax.swing.JFrame {
 
         jPasswordField_kayitParola.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Parola", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Serif", 0, 15))); // NOI18N
 
+        jButton_KoduGonderSifreUnuttum.setText("Gönder");
+
         javax.swing.GroupLayout jPanel_LoginTutucuPanelGirisEkraniLayout = new javax.swing.GroupLayout(jPanel_LoginTutucuPanelGirisEkrani);
         jPanel_LoginTutucuPanelGirisEkrani.setLayout(jPanel_LoginTutucuPanelGirisEkraniLayout);
         jPanel_LoginTutucuPanelGirisEkraniLayout.setHorizontalGroup(
@@ -263,7 +273,8 @@ public class girisEkrani extends javax.swing.JFrame {
                     .addComponent(jPasswordField_ParolaGiris, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_GirisEkrani)
                     .addComponent(jLabel_sifremiUnuttum)
-                    .addComponent(jLabel_kayitOl, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel_kayitOl, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_KoduGonderSifreUnuttum))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel_LoginTutucuPanelGirisEkraniLayout.setVerticalGroup(
@@ -291,7 +302,9 @@ public class girisEkrani extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton_GirisEkrani)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel_sifremiUnuttum)
+                .addGroup(jPanel_LoginTutucuPanelGirisEkraniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel_sifremiUnuttum)
+                    .addComponent(jButton_KoduGonderSifreUnuttum))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel_kayitOl)
                 .addGap(43, 43, 43))
@@ -452,8 +465,34 @@ public class girisEkrani extends javax.swing.JFrame {
         System.out.println("id:"+textAlinanKullanici);
         System.out.println("parola:"+passAlinanParola);
         
-
+        if(textAlinanKullanici.equals("") && passAlinanParola.equals("")){
+            JOptionPane.showMessageDialog(this, "Kullanýcý Adý ve Þifre alanlarý boþ !");
+        }
+        else if(textAlinanKullanici.equals("")){
+            JOptionPane.showMessageDialog(this, "Kullanýcý Adý alaný boþ lütfen parolanýzý girin!");
+        }
+        else if(passAlinanParola.equals("")){
+            JOptionPane.showMessageDialog(this, "Parola alaný boþ lütfen parolanýzý girin!");
+        }
+        else{
+         
+            if(textAlinanKullanici.equals(kullaniciAdi2) && passAlinanParola.equals(kullaniciParola)){
+                JOptionPane.showConfirmDialog(this, "Giriþ Baþarýlý Hoþgeldiniz !");
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Kullanýcý Adý veya Parola Hatalý !");
+            }
+            
+        }
     }//GEN-LAST:event_jButton_GirisEkraniActionPerformed
+
+    private void jTextField_DogrulamaKoduGirisKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_DogrulamaKoduGirisKeyPressed
+        
+        if(evt.getKeyChar() == KeyEvent.VK_ENTER){
+            jButton_KoduGonderSifreUnuttum.doClick();
+        }
+
+    }//GEN-LAST:event_jTextField_DogrulamaKoduGirisKeyPressed
 
     /**
      * @param args the command line arguments
@@ -492,6 +531,7 @@ public class girisEkrani extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_GirisEkrani;
+    private javax.swing.JButton jButton_KoduGonderSifreUnuttum;
     private javax.swing.JLabel jLabel_GirisUserIkon;
     private javax.swing.JLabel jLabel_KalanSureKurtarma;
     private javax.swing.JLabel jLabel_KurtarmaGeriSayimInt;
