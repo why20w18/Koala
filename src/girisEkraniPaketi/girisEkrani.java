@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 
@@ -169,10 +170,20 @@ public class girisEkrani extends javax.swing.JFrame {
         );
 
         jTextField_KullaniciAdiGiris.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), " Kullanýcý Adý ", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Serif", 0, 15))); // NOI18N
+        jTextField_KullaniciAdiGiris.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField_KullaniciAdiGirisKeyPressed(evt);
+            }
+        });
 
         jTextField_DogrulamaKoduGiris.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), " Doðrulama Kodu ", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Serif", 0, 15))); // NOI18N
 
         jPasswordField_ParolaGiris.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), " Parola ", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Serif", 0, 15))); // NOI18N
+        jPasswordField_ParolaGiris.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField_ParolaGirisKeyPressed(evt);
+            }
+        });
 
         jLabel_KalanSureKurtarma.setFont(new java.awt.Font("Serif", 1, 17)); // NOI18N
         jLabel_KalanSureKurtarma.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -414,7 +425,24 @@ public class girisEkrani extends javax.swing.JFrame {
         System.out.println("id:"+textAlinanKullanici);
         System.out.println("parola:"+passAlinanParola);
         
+        
     }//GEN-LAST:event_jButton_GirisEkraniMouseClicked
+
+    private void jTextField_KullaniciAdiGirisKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_KullaniciAdiGirisKeyPressed
+        
+        if(evt.getKeyChar() == KeyEvent.VK_ENTER){ //enter basinca oto buton bassin
+            jButton_GirisEkrani.doClick();
+        }
+
+    }//GEN-LAST:event_jTextField_KullaniciAdiGirisKeyPressed
+
+    private void jPasswordField_ParolaGirisKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField_ParolaGirisKeyPressed
+        
+        if(evt.getKeyChar() == KeyEvent.VK_ENTER){
+            jButton_GirisEkrani.doClick();
+        }
+
+    }//GEN-LAST:event_jPasswordField_ParolaGirisKeyPressed
 
     /**
      * @param args the command line arguments
