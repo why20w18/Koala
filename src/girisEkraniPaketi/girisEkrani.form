@@ -301,6 +301,9 @@
                   <Image iconType="3" name="/imagesPack/koalaGirisEkraniButon.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton_GirisEkraniMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField_KayitKullaniciAdi">
               <Properties>
