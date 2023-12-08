@@ -7,6 +7,8 @@ package girisEkraniPaketi;
 import girisKaynakKODislemler.ikonGecisRenkGecis;
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 /**
  *
@@ -16,7 +18,11 @@ public class girisEkrani extends javax.swing.JFrame {
     
     ikonGecisRenkGecis ikonRenk = new ikonGecisRenkGecis();
     
-    public girisEkrani() {
+    //ekrani ortada baslatmak icin obje olusturuyorum
+    Dimension boyut = Toolkit.getDefaultToolkit().getScreenSize(); /*uygulama acilirken ortaya almali 
+    o yuzden constructorda kullancagim*/
+    
+    public girisEkrani() { //constructorda cagiriyoruz ki basta oto bunlar calissin
         initComponents();
         sifreUnuttumAcKapa(false);
         kayitOlAcKapa(false);
@@ -30,11 +36,13 @@ public class girisEkrani extends javax.swing.JFrame {
         jTextField_KullaniciAdiGiris.setVisible(!dogruMu); //basta false girildiginden constructorda , true olup gozukur
         jPasswordField_ParolaGiris.setVisible(!dogruMu);
         
-        if(dogruMu){ //basta false girildi , uyari ikonu gelmeli
+        if(dogruMu){ //basta false girildi , uyari ikonu gelmeyecek
             jLabel_GirisUserIkon.setIcon(ikonRenk.getUser128pxGirisSifreUnuttun());
         }
         else{
             jLabel_GirisUserIkon.setIcon(ikonRenk.getUser128pxGirisBeyaz());
+            //program acildiginda ilk burasi calisacak o yuzden ekrani dimensionla burada ortalayacagiz
+            this.setLocation(boyut.width/2 - this.getSize().width / 2,boyut.height/2 - this.getSize().height / 2);
         }
         
         return dogruMu;
@@ -52,7 +60,7 @@ public class girisEkrani extends javax.swing.JFrame {
 
     if(dogruMu){
 
-        jLabel_GirisUserIkon.setIcon(ikonRenk.getUser128pxGirisSifreUnuttun());
+        jLabel_GirisUserIkon.setIcon(ikonRenk.getUser128pxKayitOl());
 
     }else{
     
