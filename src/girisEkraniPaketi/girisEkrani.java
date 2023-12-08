@@ -332,16 +332,21 @@ public class girisEkrani extends javax.swing.JFrame {
     String kullaniciAdi = jTextField_KullaniciAdiGiris.getText();
     kullaniciAdi = kullaniciAdi.replaceAll(" ", "");//bosluklu kullanici adina izin yok bufferoverflow ihtimali
     jTextField_KullaniciAdiGiris.setText(kullaniciAdi);
-        //Y/N gore int deger dondurecek 0=yes
+       
     int neSectin = new JOptionPane().showConfirmDialog(this, "Kurtarma"
             + " kodu e-postanýza gönderilsin mi ?", "E-Posta Ýsteði", JOptionPane.YES_NO_OPTION);
     
-    if(neSectin == 1){ //BOS BIRAKTIYSA & AYNI ZAMANDA KAYITTAN > SIFREMI UNUTTUMA ATLAYAMIYOR
-        System.out.println("kullanici adi giriniz !!!");
+    if(!kullaniciAdi.equals("")){ //DOGRU GIRIS
+        if(neSectin == JOptionPane.YES_OPTION){
+            JOptionPane.showMessageDialog(this, "E-Posta adresinize gelen 4 haneli kodu girin !");
+        }
+        else if(neSectin == JOptionPane.NO_OPTION){
+            JOptionPane.showMessageDialog(this, "E-Posta adresinize doðrulama kodu GÖNDERÝLMEYECEKTÝR !");
+        }
     }
-    else{ //DOGRU GIRIS
+    else{ //YANLIS GIRIS
         
-        
+        JOptionPane.showMessageDialog(this, "Kullanýcý Adý boþ býrakýlamaz");
     }
     
     //sifreUnuttumAcKapa(true);
