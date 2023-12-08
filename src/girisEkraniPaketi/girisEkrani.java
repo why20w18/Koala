@@ -229,6 +229,11 @@ public class girisEkrani extends javax.swing.JFrame {
                 jButton_GirisEkraniMouseClicked(evt);
             }
         });
+        jButton_GirisEkrani.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_GirisEkraniActionPerformed(evt);
+            }
+        });
 
         jTextField_KayitKullaniciAdi.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), " Kullanýcý Adý ", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Serif", 0, 15))); // NOI18N
 
@@ -418,13 +423,7 @@ public class girisEkrani extends javax.swing.JFrame {
 
     private void jButton_GirisEkraniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_GirisEkraniMouseClicked
         
-        String textAlinanKullanici = jTextField_KullaniciAdiGiris.getText();
-        String passAlinanParola = new String(jPasswordField_ParolaGiris.getPassword());
-        //dogrudan erisimde bellek gostericileri getiriyor bir obje uzerinden erisim gerekiyor
-        
-        System.out.println("id:"+textAlinanKullanici);
-        System.out.println("parola:"+passAlinanParola);
-        
+       
         
     }//GEN-LAST:event_jButton_GirisEkraniMouseClicked
 
@@ -443,6 +442,18 @@ public class girisEkrani extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jPasswordField_ParolaGirisKeyPressed
+
+    private void jButton_GirisEkraniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GirisEkraniActionPerformed
+        
+        String textAlinanKullanici = jTextField_KullaniciAdiGiris.getText();
+        String passAlinanParola = new String(jPasswordField_ParolaGiris.getPassword());
+        //dogrudan erisimde bellek gostericileri getiriyor bir obje uzerinden erisim gerekiyor
+        
+        System.out.println("id:"+textAlinanKullanici);
+        System.out.println("parola:"+passAlinanParola);
+        
+
+    }//GEN-LAST:event_jButton_GirisEkraniActionPerformed
 
     /**
      * @param args the command line arguments
