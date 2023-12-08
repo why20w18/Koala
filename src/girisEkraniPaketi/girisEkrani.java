@@ -25,6 +25,10 @@ public class girisEkrani extends javax.swing.JFrame {
     Dimension boyut = Toolkit.getDefaultToolkit().getScreenSize(); /*uygulama acilirken ortaya almali 
     o yuzden constructorda kullancagim*/
     
+    //
+    public String kullaniciAdi2 = "bugra";
+    public String kullaniciParola = "parola2";
+    
     public girisEkrani() { //constructorda cagiriyoruz ki basta oto bunlar calissin
         initComponents();
         sifreUnuttumAcKapa(false);
@@ -39,6 +43,9 @@ public class girisEkrani extends javax.swing.JFrame {
         jTextField_KullaniciAdiGiris.setVisible(!dogruMu); //basta false girildiginden constructorda , true olup gozukur
         jPasswordField_ParolaGiris.setVisible(!dogruMu);
         
+        jLabel_kayitOl.setVisible(!dogruMu);
+        jLabel_sifremiUnuttum.setVisible(!dogruMu);
+
         if(dogruMu){ //basta false girildi , uyari ikonu gelmeyecek
             jLabel_GirisUserIkon.setIcon(ikonRenk.getUser128pxGirisSifreUnuttun());
         }
@@ -53,10 +60,12 @@ public class girisEkrani extends javax.swing.JFrame {
    public Boolean kayitOlAcKapa(boolean dogruMu){
     jTextField_KullaniciAdiGiris.setVisible(!dogruMu);
     jPasswordField_ParolaGiris.setVisible(!dogruMu);
-    jTextField_DogrulamaKoduGiris.setVisible(!dogruMu);
+    jTextField_DogrulamaKoduGiris.setVisible(false);
     jLabel_KalanSureKurtarma.setVisible(!dogruMu);
     jLabel_KurtarmaGeriSayimInt.setVisible(!dogruMu);
-
+    
+    jLabel_kayitOl.setVisible(!dogruMu);
+    jLabel_sifremiUnuttum.setVisible(!dogruMu);
     jTextField_KayitKullaniciAdi.setVisible(dogruMu);
     jTextField_Kayýt_Email.setVisible(dogruMu);
     jPasswordField_kayitParola.setVisible(dogruMu);
@@ -204,6 +213,11 @@ public class girisEkrani extends javax.swing.JFrame {
         });
 
         jButton_GirisEkrani.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPack/koalaGirisEkraniButon.png"))); // NOI18N
+        jButton_GirisEkrani.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_GirisEkraniMouseClicked(evt);
+            }
+        });
 
         jTextField_KayitKullaniciAdi.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), " Kullanýcý Adý ", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Serif", 0, 15))); // NOI18N
 
@@ -331,6 +345,8 @@ public class girisEkrani extends javax.swing.JFrame {
     private void jLabel_sifremiUnuttumMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_sifremiUnuttumMouseClicked
         
     String kullaniciAdi = jTextField_KullaniciAdiGiris.getText();
+    //String kullaniciParola2 = new String(jPasswordField_ParolaGiris.getPassword());
+    
     kullaniciAdi = kullaniciAdi.replaceAll(" ", "");//bosluklu kullanici adina izin yok bufferoverflow ihtimali
     jTextField_KullaniciAdiGiris.setText(kullaniciAdi);
        
@@ -338,6 +354,7 @@ public class girisEkrani extends javax.swing.JFrame {
             + " kodu e-postanýza gönderilsin mi ?", "E-Posta Ýsteði", JOptionPane.YES_NO_OPTION);
     
     if(!kullaniciAdi.equals("")){ //DOGRU GIRIS
+        
         if(neSectin == JOptionPane.YES_OPTION){
             JOptionPane.showMessageDialog(this, "E-Posta adresinize gelen 4 haneli kodu girin !");
             sifreUnuttumAcKapa(true); //artik kullanici adi girdiyse ve mail almak istiyorsa mail alacak
@@ -361,16 +378,16 @@ public class girisEkrani extends javax.swing.JFrame {
                     //gui ekranla bilgi verilebilir burada invokelater
                 }
                 
-                
-                
             };
-        swingWorker.execute();
+        swingWorker.execute(); //SwingWorker execute edilmeden calismadi
         
         }
+        
         else if(neSectin == JOptionPane.NO_OPTION){
             JOptionPane.showMessageDialog(this, "E-Posta adresinize doðrulama kodu GÖNDERÝLMEYECEKTÝR !");
         }
     }
+    
     else{ //YANLIS GIRIS
         
         JOptionPane.showMessageDialog(this, "Kullanýcý Adý boþ býrakýlamaz");
@@ -387,6 +404,17 @@ public class girisEkrani extends javax.swing.JFrame {
         kayitOlAcKapa(true);
 
     }//GEN-LAST:event_jLabel_kayitOlMouseClicked
+
+    private void jButton_GirisEkraniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_GirisEkraniMouseClicked
+        
+        String textAlinanKullanici = jTextField_KullaniciAdiGiris.getText();
+        String passAlinanParola = new String(jPasswordField_ParolaGiris.getPassword());
+        //dogrudan erisimde bellek gostericileri getiriyor bir obje uzerinden erisim gerekiyor
+        
+        System.out.println("id:"+textAlinanKullanici);
+        System.out.println("parola:"+passAlinanParola);
+        
+    }//GEN-LAST:event_jButton_GirisEkraniMouseClicked
 
     /**
      * @param args the command line arguments
