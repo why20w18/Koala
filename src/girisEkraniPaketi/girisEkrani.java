@@ -5,11 +5,15 @@
 package girisEkraniPaketi;
 
 import girisKaynakKODislemler.ikonGecisRenkGecis;
+import veriTabaniPaketi.islemlerKullaniciDB;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.MessagingException;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 
@@ -21,6 +25,7 @@ public class girisEkrani extends javax.swing.JFrame {
     
     //
     ikonGecisRenkGecis ikonRenk = new ikonGecisRenkGecis();
+    islemlerKullaniciDB islemDB = new islemlerKullaniciDB();
     
     //ekrani ortada baslatmak icin obje olusturuyorum
     Dimension boyut = Toolkit.getDefaultToolkit().getScreenSize(); /*uygulama acilirken ortaya almali 
@@ -394,7 +399,8 @@ public class girisEkrani extends javax.swing.JFrame {
         
     String kullaniciAdi = jTextField_KullaniciAdiGiris.getText();
     //String kullaniciParola2 = new String(jPasswordField_ParolaGiris.getPassword());
-    
+    //islemDB.kullaniciDBcek(kullaniciAdi); //mail ve pass cekiyor
+    //islemDB.sifreUnuttum(kullaniciAdi); //mail kontrol ediyor -> islemMail Classindan mail gonderiyor yada kayit olmadin diyor
     
     kullaniciAdi = kullaniciAdi.replaceAll(" ", "");//bosluklu kullanici adina izin yok bufferoverflow ihtimali
     jTextField_KullaniciAdiGiris.setText(kullaniciAdi);
@@ -405,20 +411,29 @@ public class girisEkrani extends javax.swing.JFrame {
     if(!kullaniciAdi.equals("")){ //DOGRU GIRIS
         
         if(neSectin == JOptionPane.YES_OPTION){
-            JOptionPane.showMessageDialog(this, "E-Posta adresinize gelen 4 haneli kodu girin !");
+            
+            //JOptionPane.showMessageDialog(this, "E-Posta adresinize gelen 4 haneli kodu girin !");
+            
             sifreUnuttumAcKapa(true); //artik kullanici adi girdiyse ve mail almak istiyorsa mail alacak
             //girdiyse geri sayim baslasin
+            //kullaniciAdi getText ile textfield uzerinden alindi
+            
+            
+            
             jLabel_koalaGirisPosteri.setIcon(ikonRenk.getKoalaParolaSifirlamaEkraniPosteri());
-            SwingWorker<Void , Void> swingWorker = new SwingWorker<Void, Void>() {
+            
+            
+            
+            SwingWorker<Boolean , Integer> swingWorker = new SwingWorker<Boolean, Integer>() {
                 @Override
-                protected Void doInBackground() throws Exception{
+                protected Boolean doInBackground() throws Exception{
                     
                     for(int i = 180 ; i >= 0 ; i--){
                         
                         jLabel_KurtarmaGeriSayimInt.setText(String.valueOf(i));
                         Thread.sleep(1000); // dongu hizlica bitmesin 1 saniyeye esit olsun her iterasyon
                     }
-                    return null;   //?
+                    return true;   //?
                 }
 
                 @Override
@@ -426,11 +441,13 @@ public class girisEkrani extends javax.swing.JFrame {
                 jLabel_koalaGirisPosteri.setIcon(ikonRenk.getKoalaGirisEkraniPosteri());
                     sifreUnuttumAcKapa(false);
                     //gui ekranla bilgi verilebilir burada invokelater
+                     
                 }
                 
             };
-        swingWorker.execute(); //SwingWorker execute edilmeden calismadi
-        
+            swingWorker.execute(); //SwingWorker execute edilmeden calismadi
+       
+      
         }
         
         else if(neSectin == JOptionPane.NO_OPTION){
