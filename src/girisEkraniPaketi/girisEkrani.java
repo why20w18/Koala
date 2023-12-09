@@ -63,9 +63,11 @@ public class girisEkrani extends javax.swing.JFrame {
    public Boolean kayitOlAcKapa(boolean dogruMu){
     jTextField_KullaniciAdiGiris.setVisible(!dogruMu);
     jPasswordField_ParolaGiris.setVisible(!dogruMu);
+    
     jTextField_DogrulamaKoduGiris.setVisible(false);
-    jLabel_KalanSureKurtarma.setVisible(!dogruMu);
-    jLabel_KurtarmaGeriSayimInt.setVisible(!dogruMu);
+    jLabel_KalanSureKurtarma.setVisible(false);
+    jLabel_KurtarmaGeriSayimInt.setVisible(false);
+    
     
     jLabel_kayitOl.setVisible(!dogruMu);
     jLabel_sifremiUnuttum.setVisible(!dogruMu);
