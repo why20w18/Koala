@@ -12,11 +12,23 @@ public class ikonGecisRenkGecis {
     private Icon user128pxGirisSifreUnuttun = new ImageIcon(getClass().getResource("/imagesPack/user128pxGirisSifreUnuttun.png"));
     private Icon user128pxKayitOl = new ImageIcon(getClass().getResource("/imagesPack/user128pxKayitOl.png"));
     
+    //posterler
+    private Icon koalaGirisEkraniPosteri = new ImageIcon(getClass().getResource("/imagesPack/koalaGirisEkraniPosteri2.png"));
+
+    public Icon getKoalaGirisEkraniPosteri() {
+        return koalaGirisEkraniPosteri;
+    }
+    private Icon koalaParolaSifirlamaEkraniPosteri = new ImageIcon(getClass().getResource("/imagesPack/koalaParolaSifirlamaEkraniPosteri.png"));
+    
     private Color sifreUnuttumMavi = new Color(102,153,255);
     private Color kayitOlMavi = new Color(51,51,255);
 
     public Icon getUser128pxKayitOl() {
         return user128pxKayitOl;
+    }
+
+    public Icon getKoalaParolaSifirlamaEkraniPosteri() {
+        return koalaParolaSifirlamaEkraniPosteri;
     }
     
     //getter
