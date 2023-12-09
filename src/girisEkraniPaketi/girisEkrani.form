@@ -108,6 +108,7 @@
                           <Component id="jLabel_sifremiUnuttum" alignment="2" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel_kayitOl" alignment="2" min="-2" pref="122" max="-2" attributes="0"/>
                           <Component id="jButton_KoduGonderSifreUnuttum" alignment="2" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton_KayitButon" alignment="2" min="-2" pref="66" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="14" max="32767" attributes="0"/>
                   </Group>
@@ -145,7 +146,9 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel_kayitOl" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButton_KayitButon" min="-2" pref="23" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -364,6 +367,11 @@
             <Component class="javax.swing.JButton" name="jButton_KoduGonderSifreUnuttum">
               <Properties>
                 <Property name="text" type="java.lang.String" value="G&#xf6;nder"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton_KayitButon">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Kay&#x131;t"/>
               </Properties>
             </Component>
           </SubComponents>
