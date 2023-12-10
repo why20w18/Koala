@@ -26,7 +26,7 @@ import veriKullaniciPaketi.kullanici;
  */
 public class girisEkrani extends javax.swing.JFrame {
     
-    private String DB_TABLO_KULLANICI = "kullanicilar";//tablo degil veritabani
+    private String DB_TABLO_KULLANICI = "kullanicilar";//tablo degil veritabani adi
     
     //
     ikonGecisRenkGecis ikonRenk = new ikonGecisRenkGecis();
@@ -271,12 +271,22 @@ public class girisEkrani extends javax.swing.JFrame {
         jTextField_KayitKullaniciAdi.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), " Kullanýcý Adý ", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Serif", 0, 15))); // NOI18N
 
         jTextField_Kayýt_Email.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), " E Posta ", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Serif", 0, 15))); // NOI18N
+        jTextField_Kayýt_Email.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_Kayýt_EmailActionPerformed(evt);
+            }
+        });
 
         jPasswordField_kayitParola.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Parola", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Serif", 0, 15))); // NOI18N
 
         jButton_KoduGonderSifreUnuttum.setText("Gönder");
 
         jButton_KayitButon.setText("Kayýt");
+        jButton_KayitButon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_KayitButonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel_LoginTutucuPanelGirisEkraniLayout = new javax.swing.GroupLayout(jPanel_LoginTutucuPanelGirisEkrani);
         jPanel_LoginTutucuPanelGirisEkrani.setLayout(jPanel_LoginTutucuPanelGirisEkraniLayout);
@@ -510,15 +520,13 @@ public class girisEkrani extends javax.swing.JFrame {
         boolean girisSonuc = false;
         boolean sifreSonuc = false;
         
-        kullanici kullanýci;
+        kullanici kullanýci; //classtan kullanici
                 
           
                         
             try {
-            // Giriþ iþlemleri yapýyoruz
-            
                 girisSonuc = islemGiris.bosGirisKontrol();
-                
+                //islemDB , islemlerKullaniciDB classindan en basta olusturdugum nesne
                 if(girisSonuc){
                 
                     kullanýci = islemDB.kullaniciBulDB(girilenKullanýcýAdý, girilenKullanýcýSifre);
@@ -551,6 +559,28 @@ public class girisEkrani extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jTextField_DogrulamaKoduGirisKeyPressed
+
+    private void jButton_KayitButonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_KayitButonActionPerformed
+            
+        //database otomatik ekleme yapabilme
+        //kayitGiris classi gerekiyor bosluk kontrolu icin
+        
+        String kayitGirilenKullaniciAdi = jTextField_KayitKullaniciAdi.getText();
+        String kayitGirilenEmail = jTextField_Kayýt_Email.getText();
+        String kayitGirilenParola = new String(jPasswordField_kayitParola.getPassword());
+        int toplamSure = 0;
+        
+        islemDB = new islemlerKullaniciDB(DB_TABLO_KULLANICI);
+        kullanici kullaniciReferans = islemDB.kullaniciEkleDB(kayitGirilenKullaniciAdi,kayitGirilenParola, kayitGirilenEmail , toplamSure);
+        
+        
+      
+        
+    }//GEN-LAST:event_jButton_KayitButonActionPerformed
+
+    private void jTextField_Kayýt_EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_Kayýt_EmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_Kayýt_EmailActionPerformed
 
     /**
      * @param args the command line arguments
