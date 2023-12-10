@@ -4,10 +4,17 @@ database olusturduktan sonra tablolarin id degeri otomatik increament olmuyorsa 
 kullanicilar DATABASE'indeki
 kullanici tablosu silindikten sonra id değeri oto artan bir tablo olusturulur sql uzerinden
 
-CREATE TABLE kullanici (
+>localhost > SQL
+>
+    CREATE TABLE kullanici (
     id INT AUTO_INCREMENT PRIMARY KEY,
+ 
     kullaniciAdi VARCHAR(255),
+    
     kullaniciParola VARCHAR(255),
+    
     kullaniciMail VARCHAR(255),
-    toplamSure INT
-);
+
+    toplamSure INT );
+>
+
