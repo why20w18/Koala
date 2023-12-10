@@ -52,32 +52,36 @@ public class islemlerKullaniciDB extends SQLBaglanti{
     //PreparedStatement komuttamamlayýcý; SQLBaglanti classinda tanimlandi ve kalitiliyor
      private final String KULLANICI_EKLE = "INSERT INTO kullanici (kullaniciAdi, kullaniciParola, kullaniciMail, toplamSure) VALUES (?, ?, ?, ?)";
      
-    
-    public kullanici kullaniciEkleDB(String kullaniciAdi, String kullaniciParola, String kullaniciMail) {
+    public kullanici kullaniciEkleDB(String kullaniciAdi, String kullaniciParola, String kullaniciMail , int toplamSure) {
         try {
             komuttamamlayýcý = baglantý.prepareStatement(KULLANICI_EKLE);
             komuttamamlayýcý.setString(1, kullaniciAdi);
             komuttamamlayýcý.setString(2, kullaniciParola);
             komuttamamlayýcý.setString(3, kullaniciMail);
-            //komuttamamlayýcý.setString(4, toplamSure);
+            komuttamamlayýcý.setInt(4, toplamSure); //4.parametreyi integer ayarladik oto sifir
             
-        
 
-            int sonuc = komuttamamlayýcý.executeUpdate();
+           int etkilenenSatirSayisi = komuttamamlayýcý.executeUpdate();
 
-            if (sonuc > 0) {
-                System.out.println("Kullanýcý baþarýyla eklendi.");
-            } else {
-                System.out.println("Kullanýcý eklenirken bir hata oluþtu.");
+            if (etkilenenSatirSayisi > 0) {
+            System.out.println("Kullanýcý baþarýyla eklendi.");
+
+            ResultSet generatedKeys = komuttamamlayýcý.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                int yeniKullaniciID = generatedKeys.getInt(1);
+                System.out.println("Eklenen Kullanýcý ID: " + yeniKullaniciID);
+                System.out.println("Eklenen Kullanýcý Adý: " + kullaniciAdi);
+                System.out.println("Eklenen Kullanýcý Parola: " + kullaniciParola);
+                System.out.println("Eklenen Kullanýcý Email: " + kullaniciMail);
+                System.out.println("Eklenen Kullanýcý Toplam Süre: 0");
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(islemlerKullaniciDB.class.getName()).log(Level.SEVERE, null, ex);
-        }       
+        } else {
+            System.out.println("Kullanýcý eklenirken bir hata oluþtu.");
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(islemlerKullaniciDB.class.getName()).log(Level.SEVERE, null, ex);
+    }       
                 kullanici kullanici = null;
                 return kullanici;
     }
 }
-    
-    
-   
-      
