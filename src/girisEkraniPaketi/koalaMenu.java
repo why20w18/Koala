@@ -40,18 +40,12 @@ public class koalaMenu extends javax.swing.JFrame {
      private int sure = 0;
      
     public void zamanOlc(){
-        
         timer = new Timer(1000,new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
-                if(jSpinner_zamanAyarla.getValue() == sure){
-                jLabel_GecenSureINT.setText(String.valueOf(sure));    
-                
-                }
-                
-                
-                
+                 sure++;
+                 jLabel_GecenSureINT.setText(String.valueOf(sure));
+                 
                 
             }
         } );
@@ -74,13 +68,13 @@ public class koalaMenu extends javax.swing.JFrame {
         jButton_GenelSiralama = new javax.swing.JButton();
         jButton_ArkadasSiralama1 = new javax.swing.JButton();
         jLabel_ayarlananSure = new javax.swing.JLabel();
-        jSpinner_zamanAyarla = new javax.swing.JSpinner();
         jButton_zamanDurdur = new javax.swing.JButton();
         jButton_zamanDuraklat = new javax.swing.JButton();
         jLabel_gecenSure = new javax.swing.JLabel();
         jLabel_KoalaDurum = new javax.swing.JLabel();
         jButton_Baslat = new javax.swing.JButton();
         jLabel_GecenSureINT = new javax.swing.JLabel();
+        jTextField_GirilenSure = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -133,10 +127,6 @@ public class koalaMenu extends javax.swing.JFrame {
         jLabel_ayarlananSure.setFont(new java.awt.Font("Times New Roman", 1, 15)); // NOI18N
         jLabel_ayarlananSure.setText("Ayarlanan Süre:");
 
-        jSpinner_zamanAyarla.setModel(new javax.swing.SpinnerNumberModel(10, 10, null, 10));
-        jSpinner_zamanAyarla.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Süreyi Ayarla", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
-        jSpinner_zamanAyarla.setName(""); // NOI18N
-
         jButton_zamanDurdur.setText("Durdur");
         jButton_zamanDurdur.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -177,6 +167,10 @@ public class koalaMenu extends javax.swing.JFrame {
         jLabel_GecenSureINT.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel_GecenSureINT.setText("0");
 
+        jTextField_GirilenSure.setBackground(new java.awt.Color(129, 211, 151));
+        jTextField_GirilenSure.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        jTextField_GirilenSure.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Süreyi Ayarlayýn", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
+
         javax.swing.GroupLayout jPanel_KoalaEnAltPanelLayout = new javax.swing.GroupLayout(jPanel_KoalaEnAltPanel);
         jPanel_KoalaEnAltPanel.setLayout(jPanel_KoalaEnAltPanelLayout);
         jPanel_KoalaEnAltPanelLayout.setHorizontalGroup(
@@ -200,8 +194,9 @@ public class koalaMenu extends javax.swing.JFrame {
                         .addGroup(jPanel_KoalaEnAltPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel_KoalaEnAltPanelLayout.createSequentialGroup()
                                 .addComponent(jButton_zamanDurdur, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(85, 85, 85)
-                                .addComponent(jSpinner_zamanAyarla, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(31, 31, 31)
+                                .addComponent(jTextField_GirilenSure, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(21, 21, 21))
                             .addGroup(jPanel_KoalaEnAltPanelLayout.createSequentialGroup()
                                 .addComponent(jLabel_gecenSure)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -221,14 +216,14 @@ public class koalaMenu extends javax.swing.JFrame {
                     .addComponent(jLabel_ayarlananSure, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel_gecenSure, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel_GecenSureINT))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addComponent(jLabel_KoalaDurum, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75)
+                .addGap(88, 88, 88)
                 .addGroup(jPanel_KoalaEnAltPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSpinner_zamanAyarla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_zamanDurdur, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_zamanDuraklat, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_Baslat, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton_Baslat, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_GirilenSure, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -339,6 +334,6 @@ public class koalaMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel_KoalaEnAltPanel;
     private javax.swing.JPanel jPanel_KoalaMenuler;
-    private javax.swing.JSpinner jSpinner_zamanAyarla;
+    private javax.swing.JTextField jTextField_GirilenSure;
     // End of variables declaration//GEN-END:variables
 }
