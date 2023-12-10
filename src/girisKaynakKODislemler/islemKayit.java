@@ -21,14 +21,10 @@ public class islemKayit{
         this.jPasswordField_kayitParola = jPasswordField_kayitParola;
         this.jTextField_Kayit_Email = jTextField_Kayit_Email;
         
-        // Bu deðerlerin her metod çaðrýldýðýnda güncellenmesi gerekir.
         this.girilenKullanýcýAdý = jTextField_KullanýcýAdý.getText();
         this.girilenSifre = new String(jPasswordField_Sifre.getPassword());
     }
-    
-    // Diðer metodlar burada...
-    
-    // Güncellenmiþ metod
+        
     public boolean bosGirisKontrol(){
         // Her metod çaðrýldýðýnda güncel deðerleri al.
         this.KayitgirilenKullanýcýAdý = KayitgirilenKullanýcýAdý.getText();
