@@ -4,6 +4,7 @@
  */
 package girisEkraniPaketi;
 
+import girisKaynakKODislemler.islemGiris;
 import girisKaynakKODislemler.ikonGecisRenkGecis;
 import veriTabaniPaketi.islemlerKullaniciDB;
 import java.awt.Color;
@@ -11,11 +12,13 @@ import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.mail.MessagingException;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
+import veriKullaniciPaketi.kullanici;
 
 /**
  *
@@ -23,16 +26,19 @@ import javax.swing.SwingWorker;
  */
 public class girisEkrani extends javax.swing.JFrame {
     
+    private String DB_TABLO_KULLANICI = "kullanicilar";//tablo degil veritabani
+    
     //
     ikonGecisRenkGecis ikonRenk = new ikonGecisRenkGecis();
-    islemlerKullaniciDB islemDB = new islemlerKullaniciDB();
+    islemlerKullaniciDB islemDB = new islemlerKullaniciDB(DB_TABLO_KULLANICI);
+    islemGiris islemGiris; //objesi olusturulunca hata veriyor bunu gerekli yerlerde olusturacagiz referans olarak kalsin
     
     //ekrani ortada baslatmak icin obje olusturuyorum
     Dimension boyut = Toolkit.getDefaultToolkit().getScreenSize(); /*uygulama acilirken ortaya almali 
     o yuzden constructorda kullancagim*/
     
     //
-    public String kullaniciAdi2 = "bugra";
+    public String kullaniciAdi = "bugra";
     public String kullaniciParola = "password";
     
     public girisEkrani() { //constructorda cagiriyoruz ki basta oto bunlar calissin
@@ -496,32 +502,46 @@ public class girisEkrani extends javax.swing.JFrame {
 
     private void jButton_GirisEkraniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GirisEkraniActionPerformed
         
-        String textAlinanKullanici = jTextField_KullaniciAdiGiris.getText();
-        String passAlinanParola = new String(jPasswordField_ParolaGiris.getPassword());
-        //dogrudan erisimde bellek gostericileri getiriyor bir obje uzerinden erisim gerekiyor
+        islemGiris = new islemGiris(jTextField_KullaniciAdiGiris, jPasswordField_ParolaGiris);
         
-        System.out.println("id:"+textAlinanKullanici);
-        System.out.println("parola:"+passAlinanParola);
+        String girilenKullanýcýAdý = jTextField_KullaniciAdiGiris.getText();
+        String girilenKullanýcýSifre = new String(jPasswordField_ParolaGiris.getPassword());
+                
+        boolean girisSonuc = false;
+        boolean sifreSonuc = false;
         
-        if(textAlinanKullanici.equals("") && passAlinanParola.equals("")){
-            JOptionPane.showMessageDialog(this, "Kullanýcý Adý ve Þifre alanlarý boþ !");
-        }
-        else if(textAlinanKullanici.equals("")){
-            JOptionPane.showMessageDialog(this, "Kullanýcý Adý alaný boþ lütfen parolanýzý girin!");
-        }
-        else if(passAlinanParola.equals("")){
-            JOptionPane.showMessageDialog(this, "Parola alaný boþ lütfen parolanýzý girin!");
-        }
-        else{
-         
-            if(textAlinanKullanici.equals(kullaniciAdi2) && passAlinanParola.equals(kullaniciParola)){
-                JOptionPane.showMessageDialog(this, "Giriþ Baþarýlý Hoþgeldiniz !");
-            }
-            else{
-                JOptionPane.showMessageDialog(this, "Kullanýcý Adý veya Parola Hatalý !");
-            }
+        kullanici kullanýci;
+                
+          
+                        
+            try {
+            // Giriþ iþlemleri yapýyoruz
             
-        }
+                girisSonuc = islemGiris.bosGirisKontrol();
+                
+                if(girisSonuc){
+                
+                    kullanýci = islemDB.kullaniciBulDB(girilenKullanýcýAdý, girilenKullanýcýSifre);
+                    
+                    if(kullanýci == null){
+                        throw new NullPointerException();
+                    }else {
+                    
+                       
+                    }
+                    
+                }else{
+                    JOptionPane.showMessageDialog(this, islemGiris.getSonucMesaj());
+                }
+            
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(islemGiris.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (NullPointerException ex){
+                JOptionPane.showMessageDialog(this, "Hatalý Kullanýcý Adý veya Þifresi Girdiniz");
+            }
+                   
+            
     }//GEN-LAST:event_jButton_GirisEkraniActionPerformed
 
     private void jTextField_DogrulamaKoduGirisKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_DogrulamaKoduGirisKeyPressed
