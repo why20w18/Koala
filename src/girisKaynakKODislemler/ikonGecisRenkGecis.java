@@ -11,6 +11,12 @@ public class ikonGecisRenkGecis {
     private Icon user128pxGirisSiyah = new ImageIcon(getClass().getResource("/imagesPack/user128pxGirisSiyah.png"));
     private Icon user128pxGirisSifreUnuttun = new ImageIcon(getClass().getResource("/imagesPack/user128pxGirisSifreUnuttun.png"));
     private Icon user128pxKayitOl = new ImageIcon(getClass().getResource("/imagesPack/user128pxKayitOl.png"));
+    private Icon kayitGeriDonButon24pxBeyaz = new ImageIcon(getClass().getResource("/imagesPack/kayitGeriDonButon24pxBeyaz.png"));
+    private Icon kayitGeriDonButon24pxSiyah = new ImageIcon(getClass().getResource("/imagesPack/kayitGeriDonButon24pxSiyah.png"));
+    private Icon koalaDusunceliZaman128px = new ImageIcon(getClass().getResource("/imagesPack/koalaDusunceliZaman128px.png"));
+    private Icon koalaMutluZaman128px = new ImageIcon(getClass().getResource("/imagesPack/koalaMutluZaman128px.png"));
+    private Icon koalaUyuyorZaman128px = new ImageIcon(getClass().getResource("/imagesPack/koalaUyuyorZaman128px.png"));
+   
     
     //posterler
     private Icon koalaGirisEkraniPosteri = new ImageIcon(getClass().getResource("/imagesPack/koalaGirisEkraniPosteri2.png"));
@@ -52,6 +58,25 @@ public class ikonGecisRenkGecis {
     public Icon getUser128pxGirisSifreUnuttun() {
         return user128pxGirisSifreUnuttun;
     }
-    
+
+    public Icon getKayitGeriDonButon24pxBeyaz() {
+        return kayitGeriDonButon24pxBeyaz;
+    }
+
+    public Icon getKoalaDusunceliZaman128px() {
+        return koalaDusunceliZaman128px;
+    }
+
+    public Icon getKoalaMutluZaman128px() {
+        return koalaMutluZaman128px;
+    }
+
+    public Icon getKayitGeriDonButon24pxSiyah() {
+        return kayitGeriDonButon24pxSiyah;
+    }
+
+    public Icon getKoalaUyuyorZaman128px() {
+        return koalaUyuyorZaman128px;
+    }
     
 }
