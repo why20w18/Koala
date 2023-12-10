@@ -44,8 +44,15 @@ public class koalaMenu extends javax.swing.JFrame {
         timer = new Timer(1000,new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                sure++;
-                jLabel_GecenSureINT.setText(String.valueOf(sure));
+                
+                if(jSpinner_zamanAyarla.getValue() == sure){
+                jLabel_GecenSureINT.setText(String.valueOf(sure));    
+                
+                }
+                
+                
+                
+                
             }
         } );
         
