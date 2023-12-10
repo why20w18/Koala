@@ -10,6 +10,9 @@ import veriKullaniciPaketi.kullanici;
 
 public class islemlerKullaniciDB extends SQLBaglanti{
     //sql baglantidan kalitim yapip komutlari dogrudan kullanacagim
+    
+    private String kayitMesaj = "";
+    
     public islemlerKullaniciDB(String DBIsmi) {
         super(DBIsmi);
     }
@@ -61,11 +64,12 @@ public class islemlerKullaniciDB extends SQLBaglanti{
             komuttamamlayýcý.setInt(4, toplamSure); //4.parametreyi integer ayarladik oto sifir
             
 
-           int etkilenenSatirSayisi = komuttamamlayýcý.executeUpdate();
+           int etkilenenSatirSayisi = komuttamamlayýcý.executeUpdate(); //insert gibi komutlarda .executeQuery calismaz
 
             if (etkilenenSatirSayisi > 0) {
-            System.out.println("Kullanýcý baþarýyla eklendi.");
-
+                
+                kayitMesaj = "Baþarýyla kayýt oldunuz !";
+                
             ResultSet generatedKeys = komuttamamlayýcý.getGeneratedKeys();
             if (generatedKeys.next()) {
                 int yeniKullaniciID = generatedKeys.getInt(1);
@@ -76,7 +80,7 @@ public class islemlerKullaniciDB extends SQLBaglanti{
                 System.out.println("Eklenen Kullanýcý Toplam Süre: 0");
             }
         } else {
-            System.out.println("Kullanýcý eklenirken bir hata oluþtu.");
+            kayitMesaj = "Kayýt sýrasýnda bir hata meydana geldi !";
         }
     } catch (SQLException ex) {
         Logger.getLogger(islemlerKullaniciDB.class.getName()).log(Level.SEVERE, null, ex);
@@ -84,4 +88,9 @@ public class islemlerKullaniciDB extends SQLBaglanti{
                 kullanici kullanici = null;
                 return kullanici;
     }
+
+    public String getKayitMesaj() {
+        return kayitMesaj;
+    }
+    
 }
