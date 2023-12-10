@@ -349,6 +349,9 @@
                   </Border>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField_Kay&#x131;t_EmailActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JPasswordField" name="jPasswordField_kayitParola">
               <Properties>
@@ -373,6 +376,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Kay&#x131;t"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_KayitButonActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
