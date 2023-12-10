@@ -12,9 +12,6 @@ public class islemGiris {
     
     // Deðiþkenlerimiz - Mesaj
     private String sonucMesaj;
-        
-    private String sonucKurtarma_BosAlan;
-    private String sonucKurtarma_Mesaj;
     
     public islemGiris(JTextField jTextField_KullanýcýAdý, JPasswordField jPasswordField_Sifre) {
         this.jTextField_KullanýcýAdý = jTextField_KullanýcýAdý;
@@ -25,9 +22,7 @@ public class islemGiris {
         this.girilenSifre = new String(jPasswordField_Sifre.getPassword());
     }
     
-    // Diðer metodlar burada...
     
-    // Güncellenmiþ metod
     public boolean bosGirisKontrol(){
         // Her metod çaðrýldýðýnda güncel deðerleri al.
         this.girilenKullanýcýAdý = jTextField_KullanýcýAdý.getText();
