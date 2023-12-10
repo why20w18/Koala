@@ -42,6 +42,7 @@ public class girisEkrani extends javax.swing.JFrame {
     //public String kullaniciParola = "password";
     
     public girisEkrani() { //constructorda cagiriyoruz ki basta oto bunlar calissin
+        setTitle("koala GÝRÝÞ SAYFASI");
         initComponents();
         sifreUnuttumAcKapa(false);
         kayitOlAcKapa(false);
@@ -60,6 +61,7 @@ public class girisEkrani extends javax.swing.JFrame {
         
         jButton_GirisEkrani.setVisible(!dogruMu);
         jButton_KayitButon.setVisible(false);
+        jButton_KayittanDon.setVisible(false);
         jButton_KoduGonderSifreUnuttum.setVisible(dogruMu);
         
         jLabel_kayitOl.setVisible(!dogruMu);
@@ -94,6 +96,7 @@ public class girisEkrani extends javax.swing.JFrame {
     
     jButton_GirisEkrani.setVisible(!dogruMu);
     jButton_KayitButon.setVisible(dogruMu);
+    jButton_KayittanDon.setVisible(dogruMu);
     jButton_KoduGonderSifreUnuttum.setVisible(false);
         
 
@@ -144,8 +147,10 @@ public class girisEkrani extends javax.swing.JFrame {
         jPasswordField_kayitParola = new javax.swing.JPasswordField();
         jButton_KoduGonderSifreUnuttum = new javax.swing.JButton();
         jButton_KayitButon = new javax.swing.JButton();
+        jButton_KayittanDon = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel_koalaGirisPosteri.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPack/koalaGirisEkraniPosteri2.png"))); // NOI18N
 
@@ -288,6 +293,21 @@ public class girisEkrani extends javax.swing.JFrame {
             }
         });
 
+        jButton_KayittanDon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPack/kayitGeriDonButon24pxBeyaz.png"))); // NOI18N
+        jButton_KayittanDon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton_KayittanDonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton_KayittanDonMouseExited(evt);
+            }
+        });
+        jButton_KayittanDon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_KayittanDonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel_LoginTutucuPanelGirisEkraniLayout = new javax.swing.GroupLayout(jPanel_LoginTutucuPanelGirisEkrani);
         jPanel_LoginTutucuPanelGirisEkrani.setLayout(jPanel_LoginTutucuPanelGirisEkraniLayout);
         jPanel_LoginTutucuPanelGirisEkraniLayout.setHorizontalGroup(
@@ -312,7 +332,8 @@ public class girisEkrani extends javax.swing.JFrame {
                     .addComponent(jLabel_sifremiUnuttum)
                     .addComponent(jLabel_kayitOl, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_KoduGonderSifreUnuttum)
-                    .addComponent(jButton_KayitButon, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton_KayitButon, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_KayittanDon))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel_LoginTutucuPanelGirisEkraniLayout.setVerticalGroup(
@@ -337,17 +358,19 @@ public class girisEkrani extends javax.swing.JFrame {
                 .addComponent(jTextField_Kayýt_Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPasswordField_kayitParola, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel_LoginTutucuPanelGirisEkraniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton_GirisEkrani)
+                    .addComponent(jButton_KayittanDon, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton_KoduGonderSifreUnuttum)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton_GirisEkrani)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel_LoginTutucuPanelGirisEkraniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel_sifremiUnuttum)
-                    .addComponent(jButton_KoduGonderSifreUnuttum))
+                .addComponent(jLabel_sifremiUnuttum)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel_kayitOl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton_KayitButon, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+                .addGap(0, 0, 0))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -534,8 +557,9 @@ public class girisEkrani extends javax.swing.JFrame {
                     if(kullanýci == null){
                         throw new NullPointerException();
                     }else {
-                        //giris dogrudur
-                        System.out.println("giris basarili!");
+                        this.setVisible(false);
+                        koalaMenu koala = new koalaMenu(kullanýci);
+                        koala.setVisible(true);
                     }
                     
                 }else{
@@ -582,6 +606,22 @@ public class girisEkrani extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField_Kayýt_EmailActionPerformed
 
+    private void jButton_KayittanDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_KayittanDonActionPerformed
+        
+        kayitOlAcKapa(false);
+        
+        
+    }//GEN-LAST:event_jButton_KayittanDonActionPerformed
+
+    private void jButton_KayittanDonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_KayittanDonMouseEntered
+
+
+    }//GEN-LAST:event_jButton_KayittanDonMouseEntered
+
+    private void jButton_KayittanDonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_KayittanDonMouseExited
+
+    }//GEN-LAST:event_jButton_KayittanDonMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -620,6 +660,7 @@ public class girisEkrani extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_GirisEkrani;
     private javax.swing.JButton jButton_KayitButon;
+    private javax.swing.JButton jButton_KayittanDon;
     private javax.swing.JButton jButton_KoduGonderSifreUnuttum;
     private javax.swing.JLabel jLabel_GirisUserIkon;
     private javax.swing.JLabel jLabel_KalanSureKurtarma;
