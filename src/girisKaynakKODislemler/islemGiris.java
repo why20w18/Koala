@@ -1,8 +1,11 @@
 package girisKaynakKODislemler;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import veriTabaniPaketi.islemlerKullaniciDB;
 
 public class islemGiris {
+    
+    islemlerKullaniciDB islemDB = new islemlerKullaniciDB("kullanicilar");
     
     private JTextField jTextField_KullanýcýAdý;
     private JPasswordField jPasswordField_Sifre;
@@ -45,6 +48,15 @@ public class islemGiris {
             return true;
         }
     }
+    
+    public void kontrolVeriTabani(){
+        //var mi yokk mu ?
+        
+        
+        
+        
+    }
+    
     
     public String getSonucMesaj() {
         return sonucMesaj;
