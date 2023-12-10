@@ -38,8 +38,8 @@ public class girisEkrani extends javax.swing.JFrame {
     o yuzden constructorda kullancagim*/
     
     //
-    public String kullaniciAdi = "bugra";
-    public String kullaniciParola = "password";
+    //public String kullaniciAdi = "bugra";
+    //public String kullaniciParola = "password";
     
     public girisEkrani() { //constructorda cagiriyoruz ki basta oto bunlar calissin
         initComponents();
@@ -534,8 +534,8 @@ public class girisEkrani extends javax.swing.JFrame {
                     if(kullanýci == null){
                         throw new NullPointerException();
                     }else {
-                    
-                       
+                        //giris dogrudur
+                        System.out.println("giris basarili!");
                     }
                     
                 }else{
@@ -572,7 +572,7 @@ public class girisEkrani extends javax.swing.JFrame {
         
         islemDB = new islemlerKullaniciDB(DB_TABLO_KULLANICI);
         kullanici kullaniciReferans = islemDB.kullaniciEkleDB(kayitGirilenKullaniciAdi,kayitGirilenParola, kayitGirilenEmail , toplamSure);
-        
+        JOptionPane.showMessageDialog(this, islemDB.getKayitMesaj());
         
       
         
