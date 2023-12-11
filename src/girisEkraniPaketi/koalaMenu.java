@@ -14,8 +14,10 @@ import static javax.swing.JOptionPane.YES_NO_OPTION;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingUtilities;
+import javax.swing.SwingWorker;
 import javax.swing.Timer;
 import veriKullaniciPaketi.kullanici;
+import veriTabaniPaketi.islemlerKullaniciDB;
 
 /**
  *
@@ -23,8 +25,10 @@ import veriKullaniciPaketi.kullanici;
  */
 public class koalaMenu extends javax.swing.JFrame {
     
+    
     ikonGecisRenkGecis ikonveRenk = new ikonGecisRenkGecis();
     Dimension boyut = Toolkit.getDefaultToolkit().getScreenSize();
+    islemlerKullaniciDB islemDB = new islemlerKullaniciDB("kullanicilar");
     
     private Timer timer;
     private int kalanSure;
@@ -35,46 +39,50 @@ public class koalaMenu extends javax.swing.JFrame {
         zamanOlc();
     }
 
-    public koalaMenu(kullanici kullanici) {
+    public koalaMenu(kullanici kullanici) { //girisEkranindan gelirken o kullaniciya ozel aciliyor overloading
         setTitle("koala App | Kullanýcý : " + kullanici.getKullaniciAdi()+" | Toplam Süre : "+kullanici.getToplamSure());
         initComponents();
+        this.setLocation(boyut.width/2 - this.getSize().width / 2,boyut.height/2 - this.getSize().height / 2);
         JOptionPane.showMessageDialog(this, "Hoþgeldin " + kullanici.getKullaniciAdi());
         zamanOlc();
     }
 
     public void zamanOlc() {
-        timer = new Timer(1000, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                kalanSure--;
-                if (kalanSure >= 0) {
+    kullanici kullanici = null; // kullanici classindan yani veritabani kolonlarina erisim icin
+    timer = new Timer(1000, new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            kalanSure--;
+            if (kalanSure >= 0) {
                 int dakika = kalanSure / 60;
                 int saniye = kalanSure % 60;
                 jLabel_GecenSureINT.setText(String.format("%02d:%02d Dakika", dakika, saniye));
-                    
-                } else {
+
+                // ayarladigi sureyi tamamlarsa veritabanina kaydetsin
+                if (kalanSure == 0) {
+                    int eklenenSure = (int) jSpinner_zamanAyarla.getValue();
+
+                    kullanici.setToplamSure(kullanici.getToplamSure() + eklenenSure);
+
+                    islemDB.kullaniciGuncelleDB(kullanici); //kullanicinin suresini guncelliyorum !isim bosa guncllencek??
+
                     timer.stop();
                     jLabel_KoalaDurum.setIcon(ikonveRenk.getKoalaMutluZaman128px());
                     JOptionPane.showMessageDialog(koalaMenu.this, "Tebrikler Hedefine Ulaþtýn !");
                 }
-            }
-        });
+            } 
+        }
+    });
 
-        jButton_Baslat.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+    jButton_Baslat.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
             int girilenDakika = (int) jSpinner_zamanAyarla.getValue();
-            kalanSure = girilenDakika * 60; 
+            kalanSure = girilenDakika * 60;
             timer.start();
-            }
-        });
-
-
-    }
-
-
-
-
+        }
+    });
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
