@@ -28,7 +28,7 @@ public class koalaRaporlar extends javax.swing.JFrame {
          initComponents();
          this.setLocation(boyut.width/2 - this.getSize().width / 2,boyut.height/2 - this.getSize().height / 2);
        kullanici2 = new kullanici(kullanici.getId(), kullanici.getKullaniciAdi(), kullanici.getKullaniciParola(), kullanici.getKullaniciMail(), kullanici.getToplamSure());
-       //setTitle("koala App | Kullanýcý : " + kullanici2.getKullaniciAdi()+" | Toplam Süre : "+kullanici2.getToplamSure()+" Dakika | Raporlar Sekmesi");
+       setTitle("koala App | Kullanýcý : " + kullanici2.getKullaniciAdi()+" | Toplam Süre : "+kullanici2.getToplamSure()+" Dakika | Raporlar Sekmesi");
      }
 
     /**
@@ -43,12 +43,13 @@ public class koalaRaporlar extends javax.swing.JFrame {
         jPanel_RaporSekmesi = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton_zamanMenusuDonus = new javax.swing.JButton();
-        jButton_dýþaAktar = new javax.swing.JButton();
+        jButton_diþAktarTXT = new javax.swing.JButton();
+        jButton_diþAktarPDF = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jButton_Detaylar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        setUndecorated(true);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
@@ -60,10 +61,22 @@ public class koalaRaporlar extends javax.swing.JFrame {
         });
 
         jPanel_RaporSekmesi.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel_RaporSekmesi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 0), 5));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
@@ -90,43 +103,59 @@ public class koalaRaporlar extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jButton_zamanMenusuDonus.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton_zamanMenusuDonus.setForeground(new java.awt.Color(0, 0, 153));
-        jButton_zamanMenusuDonus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPack/kayitGeriDonButon24pxSiyah.png"))); // NOI18N
-        jButton_zamanMenusuDonus.setText("koala Çalýþma Alanýna Geri Dön");
-        jButton_zamanMenusuDonus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_zamanMenusuDonusActionPerformed(evt);
-            }
-        });
+        jButton_diþAktarTXT.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        jButton_diþAktarTXT.setForeground(new java.awt.Color(0, 102, 51));
+        jButton_diþAktarTXT.setText(".txt");
 
-        jButton_dýþaAktar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        jButton_dýþaAktar.setForeground(new java.awt.Color(0, 102, 51));
-        jButton_dýþaAktar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPack/kullaniciRapor32px.png"))); // NOI18N
-        jButton_dýþaAktar.setText("Dýþa Aktar");
+        jButton_diþAktarPDF.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        jButton_diþAktarPDF.setForeground(new java.awt.Color(0, 102, 51));
+        jButton_diþAktarPDF.setText(".pdf");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPack/kullaniciRapor32px.png"))); // NOI18N
+        jLabel1.setText("Dýþa Aktar");
+
+        jButton_Detaylar.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        jButton_Detaylar.setForeground(new java.awt.Color(0, 204, 255));
+        jButton_Detaylar.setText("Raporlarý");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 8)); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPack/arkadasSiralama32pxSiyah.png"))); // NOI18N
+        jLabel2.setText("Arkadaþ Rapor");
 
         javax.swing.GroupLayout jPanel_RaporSekmesiLayout = new javax.swing.GroupLayout(jPanel_RaporSekmesi);
         jPanel_RaporSekmesi.setLayout(jPanel_RaporSekmesiLayout);
         jPanel_RaporSekmesiLayout.setHorizontalGroup(
             jPanel_RaporSekmesiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_RaporSekmesiLayout.createSequentialGroup()
-                .addGroup(jPanel_RaporSekmesiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel_RaporSekmesiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton_diþAktarPDF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton_diþAktarTXT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton_Detaylar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel_RaporSekmesiLayout.createSequentialGroup()
-                        .addComponent(jButton_zamanMenusuDonus, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jButton_dýþaAktar)))
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 681, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel_RaporSekmesiLayout.setVerticalGroup(
             jPanel_RaporSekmesiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_RaporSekmesiLayout.createSequentialGroup()
-                .addGroup(jPanel_RaporSekmesiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_zamanMenusuDonus, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_dýþaAktar))
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addGroup(jPanel_RaporSekmesiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel_RaporSekmesiLayout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(jButton_diþAktarTXT)
+                        .addGap(15, 15, 15)
+                        .addComponent(jButton_diþAktarPDF)
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(jButton_Detaylar))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -154,11 +183,6 @@ public class koalaRaporlar extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
-
-    private void jButton_zamanMenusuDonusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_zamanMenusuDonusActionPerformed
-  
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton_zamanMenusuDonusActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,8 +220,11 @@ public class koalaRaporlar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_dýþaAktar;
-    private javax.swing.JButton jButton_zamanMenusuDonus;
+    private javax.swing.JButton jButton_Detaylar;
+    private javax.swing.JButton jButton_diþAktarPDF;
+    private javax.swing.JButton jButton_diþAktarTXT;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel_RaporSekmesi;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
