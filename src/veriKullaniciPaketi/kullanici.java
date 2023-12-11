@@ -23,6 +23,11 @@ public class kullanici {
         this.kullaniciMail = kullaniciMail;
         this.toplamSure = toplamSure;
     }
+    public kullanici(Integer toplamSure,Integer id){ //id degeri benzersizdir hic kimseninki ayni olamaz silinse bile
+                                                //tablo buna gore olusturuldu
+        this.id = id;
+        this.toplamSure = toplamSure;
+    }
 
     public Integer getId() {
         return id;
@@ -44,6 +49,12 @@ public class kullanici {
 
     public String getKullaniciMail() {
         return kullaniciMail;
+    }
+    
+    
+    //veritabaninda sadece süreyi güncellemek için eklendi
+    public void setToplamSure(Integer toplamSure) {
+        this.toplamSure = toplamSure;
     }
 
     
