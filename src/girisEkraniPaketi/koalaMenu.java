@@ -41,6 +41,7 @@ public class koalaMenu extends javax.swing.JFrame {
     }
 
     public koalaMenu(kullanici kullanici) { //girisEkranindan gelirken o kullaniciya ozel aciliyor overloading
+        islemDB.kullaniciGuncelleDB(kullanici);
         setTitle("koala App | Kullanýcý : " + kullanici.getKullaniciAdi()+" | Toplam Süre : "+kullanici.getToplamSure());
         initComponents();
         this.setLocation(boyut.width/2 - this.getSize().width / 2,boyut.height/2 - this.getSize().height / 2);
