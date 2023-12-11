@@ -481,7 +481,7 @@ public class girisEkrani extends javax.swing.JFrame {
                     for(int i = 90 ; i >= 0 ; i--){
                         
                         jLabel_KurtarmaGeriSayimInt.setText(String.valueOf(i));
-                        Thread.sleep(100); // dongu hizlica bitmesin 1 saniyeye esit olsun her iterasyon
+                        Thread.sleep(1000); // dongu hizlica bitmesin 1 saniyeye esit olsun her iterasyon
                     }
                     return true;   //?
                 }
