@@ -94,23 +94,31 @@ public class islemlerKullaniciDB extends SQLBaglanti{
     }
     
     //toplamSureyi databasede guncellemek icin
-    private final String KULLANICI_GUNCELLE = "UPDATE kullanici SET toplamSure=? WHERE kullaniciAdi=?";
+    //private final String SUREYI_GUNCELLE = "INSERT INTO kullanici (toplamSure) VALUES (?)";
 
-    public kullanici kullaniciGuncelleDB(kullanici kullanici){
-        try {
-            komuttamamlayýcý = baglantý.prepareStatement(KULLANICI_GUNCELLE);
-            komuttamamlayýcý.setInt(1, kullanici.getToplamSure());
-            komuttamamlayýcý.setString(2, kullanici.getKullaniciAdi());
+    
+    private final String SUREYI_GUNCELLE = "UPDATE kullanici SET toplamSure=? WHERE id=?";
 
-            komuttamamlayýcý.executeUpdate();
+    public void kullaniciGuncelleDB(kullanici kullanici) {
+    try {
+        komuttamamlayýcý = baglantý.prepareStatement(SUREYI_GUNCELLE);
+        komuttamamlayýcý.setInt(1, kullanici.getToplamSure());
+        komuttamamlayýcý.setInt(2, kullanici.getId());
 
-        } catch (SQLException ex) {
-            Logger.getLogger(islemlerKullaniciDB.class.getName()).log(Level.SEVERE, null, ex);
-            
+        int etkilenenSatirSayisi = komuttamamlayýcý.executeUpdate();
+
+        if (etkilenenSatirSayisi > 0) {
+            System.out.println("Kullanýcý baþarýyla güncellendi.");
+        } else {
+            System.out.println("Kullanýcý güncellenirken bir hata oluþtu.");
         }
-
-        return kullanici;
+    } catch (SQLException ex) {
+        Logger.getLogger(islemlerKullaniciDB.class.getName()).log(Level.SEVERE, null, ex);
     }
+}
+
+   
+
 
     
 
