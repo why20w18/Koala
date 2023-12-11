@@ -567,7 +567,7 @@ public class girisEkrani extends javax.swing.JFrame {
                         throw new NullPointerException();
                     }else {
                         this.setVisible(false);
-                        islemDB.kullaniciGuncelleDB(kullanýci); //bu satir koalaMenude null hatasý aldýktan sonra guncelleme amaciyla eklendi
+
                         koalaMenu koala = new koalaMenu(kullanýci);
                         koala.setVisible(true);
                     }
