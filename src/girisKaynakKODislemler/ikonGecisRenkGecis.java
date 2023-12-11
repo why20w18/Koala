@@ -20,7 +20,12 @@ public class ikonGecisRenkGecis {
     
     //posterler
     private Icon koalaGirisEkraniPosteri = new ImageIcon(getClass().getResource("/imagesPack/koalaGirisEkraniPosteri2.png"));
-
+    private Icon koalaGirisEkraniPosteri2 = new ImageIcon(getClass().getResource("/imagesPack/koalaGirisEkraniPosteri4.png"));
+    
+    private Icon parolaSifirlamaSekmesi1112 = new ImageIcon(getClass().getResource("/imagesPack/parolaSifirlamaSekmesiPoster11_12.png"));
+    private Icon girisEkraniSekmesiPoster11_12 = new ImageIcon(getClass().getResource("/imagesPack/girisEkraniSekmesiPoster11_12.png"));
+    private Icon kayitSekmesiPoster11_12 = new ImageIcon(getClass().getResource("/imagesPack/kayitSekmesiPoster11_12.png"));
+    
     public Icon getKoalaGirisEkraniPosteri() {
         return koalaGirisEkraniPosteri;
     }
@@ -77,6 +82,18 @@ public class ikonGecisRenkGecis {
 
     public Icon getKoalaUyuyorZaman128px() {
         return koalaUyuyorZaman128px;
+    }
+
+    public Icon getParolaSifirlamaSekmesi1112() {
+        return parolaSifirlamaSekmesi1112;
+    }
+
+    public Icon getGirisEkraniSekmesiPoster11_12() {
+        return girisEkraniSekmesiPoster11_12;
+    }
+
+    public Icon getKayitSekmesiPoster11_12() {
+        return kayitSekmesiPoster11_12;
     }
     
 }
