@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.YES_NO_OPTION;
 import javax.swing.JSpinner;
+import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
@@ -48,41 +49,61 @@ public class koalaMenu extends javax.swing.JFrame {
     }
 
     public void zamanOlc() {
-    kullanici kullanici = null; // kullanici classindan yani veritabani kolonlarina erisim icin
-    timer = new Timer(1000, new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            kalanSure--;
-            if (kalanSure >= 0) {
+        kullanici kullanici = null; //kullanici classindan yani veritabani kolonlarina erisim icin
+        timer = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                kalanSure--;
+                if (kalanSure >= 0) {
                 int dakika = kalanSure / 60;
                 int saniye = kalanSure % 60;
                 jLabel_GecenSureINT.setText(String.format("%02d:%02d Dakika", dakika, saniye));
-
-                // ayarladigi sureyi tamamlarsa veritabanina kaydetsin
-                if (kalanSure == 0) {
-                    int eklenenSure = (int) jSpinner_zamanAyarla.getValue();
-
-                    kullanici.setToplamSure(kullanici.getToplamSure() + eklenenSure);
-
-                    islemDB.kullaniciGuncelleDB(kullanici); //kullanicinin suresini guncelliyorum !isim bosa guncllencek??
-
+                    
+                    //sureyi tamamlayabildiyse eger database spinnerla ayarladigi degeri gonder
+                    if(kalanSure == 0){
+                    timer.stop();
+                    
+                    jLabel_KoalaDurum.setIcon(ikonveRenk.getKoalaMutluZaman128px());
+                    JOptionPane.showMessageDialog(koalaMenu.this, "Tebrikler Hedefine Ulaþtýn !");
+                    
+                    int girilenDakika = (int) jSpinner_zamanAyarla.getValue();
+                    int toplamaEklenecekDakika = girilenDakika;
+                    //hata null hatasý
+                    String girisYapanKullaniciAdi = kullanici.getKullaniciAdi();
+                    kullanici kullanici = new kullanici(toplamaEklenecekDakika);
+                    int BasedekiSure = kullanici.getToplamSure();
+                    kullanici.setToplamSure( BasedekiSure + toplamaEklenecekDakika);
+                    
+                    
+                    islemDB.kullaniciGuncelleDB(kullanici);
+                    
+                    }
+                
+                
+                }
+                else {
                     timer.stop();
                     jLabel_KoalaDurum.setIcon(ikonveRenk.getKoalaMutluZaman128px());
                     JOptionPane.showMessageDialog(koalaMenu.this, "Tebrikler Hedefine Ulaþtýn !");
                 }
-            } 
-        }
-    });
+            }
+        });
 
-    jButton_Baslat.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
+        jButton_Baslat.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
             int girilenDakika = (int) jSpinner_zamanAyarla.getValue();
-            kalanSure = girilenDakika * 60;
+            kalanSure = girilenDakika * 60; 
             timer.start();
-        }
-    });
-}
+            }
+        });
+
+
+    }
+
+
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
