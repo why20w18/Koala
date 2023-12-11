@@ -69,8 +69,8 @@ public class koalaMenu extends javax.swing.JFrame {
                     int girilenDakika = (int) jSpinner_zamanAyarla.getValue();
                     int toplamaEklenecekDakika = girilenDakika;
                     //hata null hatasý
-                    String girisYapanKullaniciAdi = kullanici.getKullaniciAdi();
-                    kullanici kullanici = new kullanici(toplamaEklenecekDakika);
+                    Integer girisYapanID = kullanici.getId();
+                    kullanici kullanici = new kullanici(girisYapanID,toplamaEklenecekDakika);
                     int BasedekiSure = kullanici.getToplamSure();
                     kullanici.setToplamSure( BasedekiSure + toplamaEklenecekDakika);
                     
