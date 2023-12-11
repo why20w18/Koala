@@ -47,7 +47,7 @@ public class koalaMenu extends javax.swing.JFrame {
         kullanici1 = new kullanici(kullanici.getId(), kullanici.getKullaniciAdi(), kullanici.getKullaniciParola(), kullanici.getKullaniciMail(), kullanici.getToplamSure());
         
         
-        setTitle("koala App | Kullanýcý : " + kullanici.getKullaniciAdi()+" | Toplam Süre : "+kullanici.getToplamSure());
+        setTitle("koala App | Kullanýcý : " + kullanici.getKullaniciAdi()+" | Toplam Süre : "+kullanici.getToplamSure()+" Dakika");
         initComponents();
         this.setLocation(boyut.width/2 - this.getSize().width / 2,boyut.height/2 - this.getSize().height / 2);
         JOptionPane.showMessageDialog(this, "Hoþgeldin " + kullanici.getKullaniciAdi());
@@ -82,7 +82,7 @@ public class koalaMenu extends javax.swing.JFrame {
                     
                     
                     islemDB.kullaniciGuncelleDB(kullanici1);
-                    
+                    setTitle("koala App | Kullanýcý : " + kullanici1.getKullaniciAdi()+" | Toplam Süre : "+kullanici1.getToplamSure()+" Dakika");
                     }
                 
                 
@@ -337,7 +337,7 @@ public class koalaMenu extends javax.swing.JFrame {
 
     private void jButton_istatistiklerKullaniciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_istatistiklerKullaniciActionPerformed
         
-         koalaRaporlar koalaRapor = new koalaRaporlar();
+         koalaRaporlar koalaRapor = new koalaRaporlar(kullanici1);
                         koalaRapor.setVisible(true);
 
 
