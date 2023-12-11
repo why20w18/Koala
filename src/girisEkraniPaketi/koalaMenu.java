@@ -161,9 +161,19 @@ public class koalaMenu extends javax.swing.JFrame {
 
         jButton_GenelSiralama.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPack/dunyaSiralama32pxBeyaz.png"))); // NOI18N
         jButton_GenelSiralama.setText("Genel Sýralama");
+        jButton_GenelSiralama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_GenelSiralamaActionPerformed(evt);
+            }
+        });
 
         jButton_ArkadasSiralama1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPack/arkadasSiralama32pxSiyah.png"))); // NOI18N
         jButton_ArkadasSiralama1.setText("Arkadaþ Sýralama");
+        jButton_ArkadasSiralama1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_ArkadasSiralama1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel_KoalaMenulerLayout = new javax.swing.GroupLayout(jPanel_KoalaMenuler);
         jPanel_KoalaMenuler.setLayout(jPanel_KoalaMenulerLayout);
@@ -342,6 +352,20 @@ public class koalaMenu extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jButton_istatistiklerKullaniciActionPerformed
+
+    private void jButton_GenelSiralamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GenelSiralamaActionPerformed
+        
+                 koalaGenelSiralama koalaGenelSiralama = new koalaGenelSiralama(kullanici1);
+                        koalaGenelSiralama.setVisible(true);
+
+    }//GEN-LAST:event_jButton_GenelSiralamaActionPerformed
+
+    private void jButton_ArkadasSiralama1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ArkadasSiralama1ActionPerformed
+        
+          koalaArkadasSiralama koalaArkadasSiralama = new koalaArkadasSiralama(kullanici1);
+                        koalaArkadasSiralama.setVisible(true);
+
+    }//GEN-LAST:event_jButton_ArkadasSiralama1ActionPerformed
 
     /**
      * @param args the command line arguments
