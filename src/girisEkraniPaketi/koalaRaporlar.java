@@ -92,6 +92,7 @@ public class koalaRaporlar extends javax.swing.JFrame {
 
         jButton_zamanMenusuDonus.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton_zamanMenusuDonus.setForeground(new java.awt.Color(0, 0, 153));
+        jButton_zamanMenusuDonus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPack/kayitGeriDonButon24pxSiyah.png"))); // NOI18N
         jButton_zamanMenusuDonus.setText("koala Çalýþma Alanýna Geri Dön");
         jButton_zamanMenusuDonus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,6 +102,7 @@ public class koalaRaporlar extends javax.swing.JFrame {
 
         jButton_dýþaAktar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jButton_dýþaAktar.setForeground(new java.awt.Color(0, 102, 51));
+        jButton_dýþaAktar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPack/kullaniciRapor32px.png"))); // NOI18N
         jButton_dýþaAktar.setText("Dýþa Aktar");
 
         javax.swing.GroupLayout jPanel_RaporSekmesiLayout = new javax.swing.GroupLayout(jPanel_RaporSekmesi);
@@ -120,7 +122,7 @@ public class koalaRaporlar extends javax.swing.JFrame {
             jPanel_RaporSekmesiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_RaporSekmesiLayout.createSequentialGroup()
                 .addGroup(jPanel_RaporSekmesiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_zamanMenusuDonus)
+                    .addComponent(jButton_zamanMenusuDonus, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_dýþaAktar))
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
