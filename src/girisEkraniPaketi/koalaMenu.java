@@ -26,7 +26,7 @@ import veriTabaniPaketi.islemlerKullaniciDB;
  */
 public class koalaMenu extends javax.swing.JFrame {
     
-    
+    kullanici kullanici1;
     ikonGecisRenkGecis ikonveRenk = new ikonGecisRenkGecis();
     Dimension boyut = Toolkit.getDefaultToolkit().getScreenSize();
     islemlerKullaniciDB islemDB = new islemlerKullaniciDB("kullanicilar");
@@ -41,7 +41,12 @@ public class koalaMenu extends javax.swing.JFrame {
     }
 
     public koalaMenu(kullanici kullanici) { //girisEkranindan gelirken o kullaniciya ozel aciliyor overloading
-        islemDB.kullaniciGuncelleDB(kullanici);
+        
+        
+        //girisEkranindan gelen kullanici nesnesini burada kullanici1'e atarsam NULL ? çözülür mü
+        kullanici1 = new kullanici(kullanici.getId(), kullanici.getKullaniciAdi(), kullanici.getKullaniciParola(), kullanici.getKullaniciMail(), kullanici.getToplamSure());
+        
+        
         setTitle("koala App | Kullanýcý : " + kullanici.getKullaniciAdi()+" | Toplam Süre : "+kullanici.getToplamSure());
         initComponents();
         this.setLocation(boyut.width/2 - this.getSize().width / 2,boyut.height/2 - this.getSize().height / 2);
@@ -51,6 +56,7 @@ public class koalaMenu extends javax.swing.JFrame {
 
     public void zamanOlc() {
         kullanici kullanici = null; //kullanici classindan yani veritabani kolonlarina erisim icin
+ 
         timer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -70,13 +76,12 @@ public class koalaMenu extends javax.swing.JFrame {
                     int girilenDakika = (int) jSpinner_zamanAyarla.getValue();
                     int toplamaEklenecekDakika = girilenDakika;
                     //hata null hatasý
-                    Integer girisYapanID = kullanici.getId();
-                    kullanici kullanici = new kullanici(girisYapanID,toplamaEklenecekDakika);
-                    int BasedekiSure = kullanici.getToplamSure();
-                    kullanici.setToplamSure( BasedekiSure + toplamaEklenecekDakika);
+                    Integer girisYapanID = kullanici1.getId(); //kullanici burada NULL BOÞ NESNE TANIMLADIK BAÞTA ?!?
+                    int BasedekiSure = kullanici1.getToplamSure();
+                    kullanici1.setToplamSure( BasedekiSure + toplamaEklenecekDakika);
                     
                     
-                    islemDB.kullaniciGuncelleDB(kullanici);
+                    islemDB.kullaniciGuncelleDB(kullanici1);
                     
                     }
                 
@@ -148,6 +153,11 @@ public class koalaMenu extends javax.swing.JFrame {
 
         jButton_istatistiklerKullanici.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPack/kullaniciRapor32px.png"))); // NOI18N
         jButton_istatistiklerKullanici.setText("Raporlar");
+        jButton_istatistiklerKullanici.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_istatistiklerKullaniciActionPerformed(evt);
+            }
+        });
 
         jButton_GenelSiralama.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPack/dunyaSiralama32pxBeyaz.png"))); // NOI18N
         jButton_GenelSiralama.setText("Genel Sýralama");
@@ -324,6 +334,14 @@ public class koalaMenu extends javax.swing.JFrame {
         timer.stop();
 
     }//GEN-LAST:event_jButton_zamanDuraklatActionPerformed
+
+    private void jButton_istatistiklerKullaniciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_istatistiklerKullaniciActionPerformed
+        
+         koalaRaporlar koalaRapor = new koalaRaporlar();
+                        koalaRapor.setVisible(true);
+
+
+    }//GEN-LAST:event_jButton_istatistiklerKullaniciActionPerformed
 
     /**
      * @param args the command line arguments
