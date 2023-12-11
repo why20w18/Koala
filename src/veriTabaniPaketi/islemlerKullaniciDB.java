@@ -49,7 +49,7 @@ public class islemlerKullaniciDB extends SQLBaglanti{
         System.out.println("Kullanici Adi:" + sonuc.getString("kullaniciAdi"));
         System.out.println("Parola:" + sonuc.getString("kullaniciParola"));
         System.out.println("Email:" + sonuc.getString("kullaniciMail"));
-        System.out.println("Toplam Sure:" + sonuc.getInt("toplamSure"));
+        System.out.println("Toplam Sure:" + sonuc.getInt("toplamSure")+" Dakika");
     }
 
     return kullanici;
