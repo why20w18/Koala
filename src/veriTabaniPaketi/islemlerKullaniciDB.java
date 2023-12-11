@@ -97,21 +97,17 @@ public class islemlerKullaniciDB extends SQLBaglanti{
     //private final String SUREYI_GUNCELLE = "INSERT INTO kullanici (toplamSure) VALUES (?)";
 
     
-    private final String SUREYI_GUNCELLE = "UPDATE kullanici SET toplamSure=? WHERE id=?";
+    private final String SUREYI_GUNCELLE = "UPDATE kullanici SET toplamSure=? WHERE kullaniciAdi=?";
 
     public void kullaniciGuncelleDB(kullanici kullanici) {
     try {
         komuttamamlayýcý = baglantý.prepareStatement(SUREYI_GUNCELLE);
         komuttamamlayýcý.setInt(1, kullanici.getToplamSure());
-        komuttamamlayýcý.setInt(2, kullanici.getId());
+        komuttamamlayýcý.setString(2, kullanici.getKullaniciAdi());
 
-        int etkilenenSatirSayisi = komuttamamlayýcý.executeUpdate();
+         komuttamamlayýcý.executeUpdate();
 
-        if (etkilenenSatirSayisi > 0) {
-            System.out.println("Kullanýcý baþarýyla güncellendi.");
-        } else {
-            System.out.println("Kullanýcý güncellenirken bir hata oluþtu.");
-        }
+        
     } catch (SQLException ex) {
         Logger.getLogger(islemlerKullaniciDB.class.getName()).log(Level.SEVERE, null, ex);
     }
