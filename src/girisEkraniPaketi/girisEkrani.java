@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 import javax.mail.MessagingException;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
+import javax.swing.Timer;
 import veriKullaniciPaketi.kullanici;
 
 /**
@@ -42,7 +43,7 @@ public class girisEkrani extends javax.swing.JFrame {
     //public String kullaniciParola = "password";
     
     public girisEkrani() { //constructorda cagiriyoruz ki basta oto bunlar calissin
-        setTitle("koala GÝRÝÞ SAYFASI");
+        setTitle("koala App");
         initComponents();
         sifreUnuttumAcKapa(false);
         kayitOlAcKapa(false);
@@ -152,7 +153,7 @@ public class girisEkrani extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jLabel_koalaGirisPosteri.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPack/koalaGirisEkraniPosteri2.png"))); // NOI18N
+        jLabel_koalaGirisPosteri.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPack/girisEkraniSekmesiPoster11_12.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel_girisPosterPaneliLayout = new javax.swing.GroupLayout(jPanel_girisPosterPaneli);
         jPanel_girisPosterPaneli.setLayout(jPanel_girisPosterPaneliLayout);
@@ -283,6 +284,16 @@ public class girisEkrani extends javax.swing.JFrame {
         });
 
         jPasswordField_kayitParola.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Parola", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Serif", 0, 15))); // NOI18N
+        jPasswordField_kayitParola.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField_kayitParolaActionPerformed(evt);
+            }
+        });
+        jPasswordField_kayitParola.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField_kayitParolaKeyPressed(evt);
+            }
+        });
 
         jButton_KoduGonderSifreUnuttum.setText("Gönder");
 
@@ -459,7 +470,7 @@ public class girisEkrani extends javax.swing.JFrame {
             
             
             
-            jLabel_koalaGirisPosteri.setIcon(ikonRenk.getKoalaParolaSifirlamaEkraniPosteri());
+            jLabel_koalaGirisPosteri.setIcon(ikonRenk.getParolaSifirlamaSekmesi1112());
             
             
             
@@ -467,17 +478,17 @@ public class girisEkrani extends javax.swing.JFrame {
                 @Override
                 protected Boolean doInBackground() throws Exception{
                     
-                    for(int i = 180 ; i >= 0 ; i--){
+                    for(int i = 90 ; i >= 0 ; i--){
                         
                         jLabel_KurtarmaGeriSayimInt.setText(String.valueOf(i));
-                        Thread.sleep(1000); // dongu hizlica bitmesin 1 saniyeye esit olsun her iterasyon
+                        Thread.sleep(100); // dongu hizlica bitmesin 1 saniyeye esit olsun her iterasyon
                     }
                     return true;   //?
                 }
 
                 @Override
                 protected void done() { //islem bittiginde
-                jLabel_koalaGirisPosteri.setIcon(ikonRenk.getKoalaGirisEkraniPosteri());
+                jLabel_koalaGirisPosteri.setIcon(ikonRenk.getGirisEkraniSekmesiPoster11_12());
                     sifreUnuttumAcKapa(false);
                     //gui ekranla bilgi verilebilir burada invokelater
                      
@@ -506,7 +517,7 @@ public class girisEkrani extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel_sifremiUnuttumMouseClicked
 
     private void jLabel_kayitOlMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_kayitOlMouseClicked
-        
+        jLabel_koalaGirisPosteri.setIcon(ikonRenk.getKayitSekmesiPoster11_12());
         kayitOlAcKapa(true);
 
     }//GEN-LAST:event_jLabel_kayitOlMouseClicked
@@ -544,9 +555,7 @@ public class girisEkrani extends javax.swing.JFrame {
         boolean sifreSonuc = false;
         
         kullanici kullanýci; //classtan kullanici
-                
-          
-                        
+        
             try {
                 girisSonuc = islemGiris.bosGirisKontrol();
                 //islemDB , islemlerKullaniciDB classindan en basta olusturdugum nesne
@@ -607,7 +616,7 @@ public class girisEkrani extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField_Kayýt_EmailActionPerformed
 
     private void jButton_KayittanDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_KayittanDonActionPerformed
-        
+        jLabel_koalaGirisPosteri.setIcon(ikonRenk.getGirisEkraniSekmesiPoster11_12());
         kayitOlAcKapa(false);
         
         
@@ -621,6 +630,20 @@ public class girisEkrani extends javax.swing.JFrame {
     private void jButton_KayittanDonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_KayittanDonMouseExited
 
     }//GEN-LAST:event_jButton_KayittanDonMouseExited
+
+    private void jPasswordField_kayitParolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField_kayitParolaActionPerformed
+    
+       
+       
+    }//GEN-LAST:event_jPasswordField_kayitParolaActionPerformed
+
+    private void jPasswordField_kayitParolaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField_kayitParolaKeyPressed
+        
+          if(evt.getKeyChar() == KeyEvent.VK_ENTER){
+            jButton_KayitButon.doClick();
+        }
+        
+    }//GEN-LAST:event_jPasswordField_kayitParolaKeyPressed
 
     /**
      * @param args the command line arguments
