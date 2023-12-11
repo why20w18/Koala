@@ -31,6 +31,7 @@ public class koalaGenelSiralama extends javax.swing.JFrame {
        kullanici2 = new kullanici(kullanici.getId(), kullanici.getKullaniciAdi(), kullanici.getKullaniciParola(), kullanici.getKullaniciMail(), kullanici.getToplamSure());
        setTitle("koala App | Kullanýcý : " + kullanici2.getKullaniciAdi()+" | Toplam Süre : "+kullanici2.getToplamSure()+" Dakika | Genel Sýralama Sekmesi");
      
+       
     }
     
     
