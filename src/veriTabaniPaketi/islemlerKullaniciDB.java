@@ -92,6 +92,27 @@ public class islemlerKullaniciDB extends SQLBaglanti{
                 kullanici kullanici = null;
                 return kullanici;
     }
+    
+    //toplamSureyi databasede guncellemek icin
+    private final String KULLANICI_GUNCELLE = "UPDATE kullanici SET toplamSure=? WHERE kullaniciAdi=?";
+
+    public kullanici kullaniciGuncelleDB(kullanici kullanici){
+        try {
+            komuttamamlayýcý = baglantý.prepareStatement(KULLANICI_GUNCELLE);
+            komuttamamlayýcý.setInt(1, kullanici.getToplamSure());
+            komuttamamlayýcý.setString(2, kullanici.getKullaniciAdi());
+
+            komuttamamlayýcý.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(islemlerKullaniciDB.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+
+        return kullanici;
+    }
+
+    
 
     public String getKayitMesaj() {
         return kayitMesaj;
