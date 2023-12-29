@@ -13,13 +13,13 @@ Database connection is made with JDBC, when the user registers, the time he work
 <br>
 
 >## koala Giriş Ekranı (Login Screen) 
-<img src="https://i.imgur.com/uog7qzl.png" alt="alt text" width="512" height="768">
+<img src="https://i.imgur.com/uog7qzl.png" alt="alt text" width="600" height="768">
 
 >## koala Kayıt Ekranı (Register Screen)
-<img src="https://i.imgur.com/9l9T00s.png" alt="alt text" width="512" height="768">
+<img src="https://i.imgur.com/9l9T00s.png" alt="alt text" width="600" height="768">
 
 >## koala Parola Sıfırlama Ekranı (Password Reset Screen)
-<img src="https://i.imgur.com/H6zOuvS.png" alt="alt text" width="512" height="768">
+<img src="https://i.imgur.com/H6zOuvS.png" alt="alt text" width="600" height="768">
 
 >### koala Menü Ekranı (Zamanlayıcı Daha Başlamadı) | koala Menu Screen (Timer has not started yet)
 <img src="https://i.imgur.com/A4y8UOP.png" alt="alt text" width="768" height="512">
