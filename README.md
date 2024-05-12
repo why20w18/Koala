@@ -22,13 +22,13 @@ Database connection is made with JDBC, when the user registers, the time he work
 <img src="https://i.imgur.com/H6zOuvS.png" alt="alt text" width="600" height="768">
 
 >### koala Menü Ekranı (Zamanlayıcı Daha Başlamadı) | koala Menu Screen (Timer has not started yet)
-<img src="https://i.imgur.com/A4y8UOP.png" alt="alt text" width="768" height="512">
+<img src="https://i.imgur.com/A4y8UOP.png" alt="alt text" width="800" height="512">
 
 >### koala Menü Ekranı (Zamanlayıcı Başladı) |  koala Menu Screen (Timer Started)
-<img src="https://i.imgur.com/8zePdf5.png" alt="alt text" width="768" height="512">
+<img src="https://i.imgur.com/8zePdf5.png" alt="alt text" width="800" height="512">
 
 >#### koala Menü Ekranı (Zamanlayıcıda Ayarlanan Süre Tamamlandı) | koala Menu Screen (Timer Set Time Completed)
-<img src="https://i.imgur.com/1N3hanD.png" alt="alt text" width="768" height="512">
+<img src="https://i.imgur.com/1N3hanD.png" alt="alt text" width="800" height="512">
 
 >## koala Rapor Sekmesi | koala Report Tab
-<img src="https://i.imgur.com/vcgbAyv.png" alt="alt text" width="768" height="512">
+<img src="https://i.imgur.com/vcgbAyv.png" alt="alt text" width="825" height="512">
